@@ -1,6 +1,5 @@
 import React from "react";
-import { DataGrid } from "@mui/x-data-grid";
-import MTable from "../../lib/Table";
+import MTable from "../../libraries/MTable";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
