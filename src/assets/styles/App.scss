@@ -103,3 +103,20 @@ code {
   height: 400px;
   width: 100%;
 }
+
+/* -------------------------------------------------------------------------- */
+/*	Title Bars
+/* -------------------------------------------------------------------------- */
+
+.h1-title-bar {
+  background-color: white;
+}
+
+.h2-title-subtitle {
+  h2.title {
+    margin: 0;
+  }
+  p.subtitle {
+    color: $subtitle;
+  }
+}

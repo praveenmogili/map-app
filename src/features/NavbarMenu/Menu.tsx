@@ -10,15 +10,12 @@ const Menu = ({ menuOpen, ...props }) => {
   return (
     <StyledMenu menuOpen={menuOpen} aria-hidden={!isHidden} {...props}>
       <a href="/" tabIndex={tabIndex}>
-        <span aria-hidden="true">💁🏻‍♂️</span>
         About us
       </a>
       <a href="/" tabIndex={tabIndex}>
-        <span aria-hidden="true">💸</span>
         Pricing
         </a>
       <a href="/" tabIndex={tabIndex}>
-        <span aria-hidden="true">📩</span>
         Contact
         </a>
     </StyledMenu>

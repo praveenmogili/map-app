@@ -5,8 +5,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const NavbarMain = () => {
   return (
     <Navbar expand="lg" className="navbar">
-      <Container>
-        <Navbar.Brand href="#home">MYTHICS Automation Platform</Navbar.Brand>
+      <Container fluid>
+        <Navbar.Brand href="#home" className="ms-5">MYTHICS Automation Platform</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto me-0">

@@ -1,6 +1,7 @@
 import React from "react";
 import MTable from "../../components/MTable";
 import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
+import H1TitleBar from "../../components/H1TitleBar";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
