@@ -26,6 +26,7 @@ Author URI:   https://mythics.com/
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: "GothamPro", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -81,6 +82,16 @@ code {
   & .dropdown-toggle::after {
     content: none;
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/*	Footer
+/* -------------------------------------------------------------------------- */
+
+#footer {
+  background-color: $darkgreen;
+  color: white;
+  text-align: center;;
 }
 
 /* -------------------------------------------------------------------------- */

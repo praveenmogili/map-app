@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import NavbarMain from "./features/NavbarMain";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import Footer from "./features/Footer";
 
 const App = () => {
   return (
@@ -12,10 +13,13 @@ const App = () => {
       <BrowserRouter>
         <div id="app-router">
           <NavbarMain />
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-          <ToastContainer autoClose={2500} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+            <ToastContainer autoClose={2500} />
+          </main>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>
