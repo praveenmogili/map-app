@@ -20,9 +20,6 @@ Author URI:   https://mythics.com/
 /*	Root
 /* -------------------------------------------------------------------------- */
 
-:root {
-}
-
 /* -------------------------------------------------------------------------- */
 /*	General HTML
 /* -------------------------------------------------------------------------- */
@@ -38,6 +35,31 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*	General MAP App
+/* -------------------------------------------------------------------------- */
+
+.btn {
+  border-radius: 15px;
+}
+
+.btn.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.btn.btn-secondary {
+  background-color: white;
+  border-color: $border-gray;
+  color: black;
+}
+
+.btn.btn-tertiary {
+  background-color: $tertiary;
+  border-color: $tertiary;
 }
 
 /* -------------------------------------------------------------------------- */

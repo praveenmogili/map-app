@@ -30,15 +30,17 @@ const MTable = (props: MTableProps) => {
   // fill out columns if not provided
   if (columns.length === 0 && rows.length > 0) {
     const headerTitles = Object.keys(rows[0]);
-    headerTitles.forEach((title) => {
+    for (let title of headerTitles) {
+      const firstValue = rows[0][title as keyof typeof rows[0]];
+      const firstType = firstValue == null ? "string" : typeof firstValue;
       columns.push({
         field: title,
         headerName: title,
         width: MTABLE_DEF_WIDTH,
-        type: typeof rows[0][title as keyof typeof rows[0]],
+        type: firstType,
         sortable: true,
       });
-    });
+    }
   }
 
   return (
