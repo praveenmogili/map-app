@@ -10,6 +10,20 @@ Author URI:   https://mythics.com/
 */
 
 /* -------------------------------------------------------------------------- */
+/*	Import statements
+/* -------------------------------------------------------------------------- */
+
+@import "./variables";
+@import "./mixins";
+
+/* -------------------------------------------------------------------------- */
+/*	Root
+/* -------------------------------------------------------------------------- */
+
+:root {
+}
+
+/* -------------------------------------------------------------------------- */
 /*	General HTML
 /* -------------------------------------------------------------------------- */
 
@@ -18,6 +32,7 @@ body {
   font-family: "GothamPro", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $secondary;
 }
 
 code {
@@ -29,41 +44,29 @@ code {
 /*	Navbar
 /* -------------------------------------------------------------------------- */
 
-.App {
-  text-align: center;
-}
+.navbar {
+  background-color: $primary;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  & .nav-link {
+    color: white;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  & .navbar-brand {
+    color: white;
+    font-weight: bold;
+  }
+
+  & .dropdown-toggle::after {
+    content: none;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* -------------------------------------------------------------------------- */
+/*	Table
+/* -------------------------------------------------------------------------- */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mtable {
+  background-color: white;
+  height: 400px;
+  width: 100%;
 }

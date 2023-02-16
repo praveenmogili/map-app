@@ -1,0 +1,15 @@
+{
+  "surveys": [
+    {
+      "id": "sur1",
+      "name": "Order Test 1",
+      "description": "desc1",
+      "customer": {
+        "id": "cus1",
+        "name": "John Smith"
+      },
+      "created": "2022-12-12",
+      "modified": "2022-12-13"
+    }
+  ]
+}

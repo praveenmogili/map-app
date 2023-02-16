@@ -23,3 +23,6 @@ yarn install
 yarn start
 ```
 2. The app will be available at `http://localhost:3000`
+
+# License
+See [LICENSE](LICENSE) file.
