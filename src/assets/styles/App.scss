@@ -38,29 +38,33 @@ code {
     monospace;
 }
 
-
 /* -------------------------------------------------------------------------- */
 /*	General MAP App
 /* -------------------------------------------------------------------------- */
 
 .btn {
   border-radius: 15px;
-}
 
-.btn.btn-primary {
-  background-color: $primary;
-  border-color: $primary;
-}
+  &.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
 
-.btn.btn-secondary {
-  background-color: white;
-  border-color: $border-gray;
-  color: black;
-}
+    &:active {
+      background-color: $hover-primary;
+      border-color: $hover-primary;
+    }
+  }
 
-.btn.btn-tertiary {
-  background-color: $tertiary;
-  border-color: $tertiary;
+  &.btn-secondary {
+    background-color: white;
+    border-color: $border-gray;
+    color: black;
+  }
+
+  &.btn-tertiary {
+    background-color: $tertiary;
+    border-color: $tertiary;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -91,7 +95,7 @@ code {
 #footer {
   background-color: $darkgreen;
   color: white;
-  text-align: center;;
+  text-align: center;
 }
 
 /* -------------------------------------------------------------------------- */
