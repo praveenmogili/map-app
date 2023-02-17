@@ -140,3 +140,16 @@ code {
     color: $subtitle;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*	Surveys
+/* -------------------------------------------------------------------------- */
+
+#surveys {
+  .m-box-right-btn {
+    background-color: white;
+    border: 1px solid $btn-border;
+    border-radius: 6px;
+    padding: 0.375rem 0.75rem;
+  }
+}

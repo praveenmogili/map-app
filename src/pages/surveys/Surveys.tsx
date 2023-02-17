@@ -5,7 +5,7 @@ import EditSurvey from "./EditSurvey";
 
 const Surveys = () => {
   return (
-    <div>
+    <div id="surveys">
       <H1TitleBar title="Surveys" />
       <div className="container">
         <EditSurvey />

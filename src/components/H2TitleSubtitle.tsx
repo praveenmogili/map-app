@@ -2,7 +2,7 @@ import React from "react";
 
 interface H2TitleSubtitleProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   className?: string;
 }
 

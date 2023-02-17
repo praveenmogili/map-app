@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { H2TitleSubtitle } from "../../components";
+import MBoxRightBtn from "../../features/surveys/components/MBoxRightBtn";
 
 const EditSurvey = () => {
   return (
@@ -40,7 +41,11 @@ const EditSurvey = () => {
           />
 
           <Form.Label>Survey template</Form.Label>
-          {/*  */}
+          <MBoxRightBtn
+            title="Lacks Valley Survey Template"
+            subtitle="Tailored Survey for Lacks Valley Furniture"
+            button1={<Button>Choose</Button>}
+          />
 
           <Form.Label>Access permissions</Form.Label>
           {/*  */}

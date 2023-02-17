@@ -3,14 +3,14 @@ import "react-toastify/dist/ReactToastify.css";
 import FocusLock from "react-focus-lock";
 import Footer from "./features/Footer";
 import Home from "./pages/Home";
-import NavbarMain from "./features/NavbarMenu/NavbarMain";
+import NavbarMain from "./features/navbar-menu/NavbarMain";
 import React, { useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { ToastContainer } from "react-toastify";
 import { useOnClickOutside } from "./hooks/useOnClickOutside";
-import Burger from "./features/NavbarMenu/Burger";
-import Menu from "./features/NavbarMenu/Menu";
+import Burger from "./features/navbar-menu/Burger";
+import Menu from "./features/navbar-menu/Menu";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
