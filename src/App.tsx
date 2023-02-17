@@ -40,8 +40,6 @@ const App = () => {
                 />
                 <Menu
                   menuOpen={menuOpen}
-                  setMenuOpen={setMenuOpen}
-                  id={menuId}
                 />
               </FocusLock>
             </div>
