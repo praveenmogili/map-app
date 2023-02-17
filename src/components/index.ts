@@ -1,3 +1,4 @@
-export {default as MTable} from "./MTable";
+export {default as MDataTable} from "./MDataTable";
+export {default as MCollapsibleTable} from "./MCollapsibleTable";
 export {default as H1TitleBar} from "./H1TitleBar";
 export {default as H2TitleSubtitle} from "./H2TitleSubtitle";

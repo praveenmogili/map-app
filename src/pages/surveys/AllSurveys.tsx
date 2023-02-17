@@ -1,26 +1,28 @@
 import React from "react";
 import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
-import { getAllSurveys, VisibleSurvey } from "../../api/surveys";
-import { H2TitleSubtitle, MTable } from "../../components/index";
-import { DataGridColumn } from "../../components/MTable";
+import { getAllSurveys } from "../../api/surveys";
+import {
+  H2TitleSubtitle,
+  MCollapsibleTable,
+} from "../../components/index";
+import { MCollapsibleTableRow } from "../../components/MCollapsibleTable";
 
-const columns: DataGridColumn[] = [
-  { field: "name", headerName: "Name", width: 130 },
-  {
-    field: "description",
-    headerName: "Description",
-    width: 130,
+const rows: MCollapsibleTableRow[] = getAllSurveys().map((survey) => ({
+  Name: (<a href="#">{survey.name}</a>),
+  Description: survey.description,
+  Customer: survey.customer.name,
+  Status: survey.status,
+  expandableAttr: {
+    displayName: "Additional info",
+    jsx: (
+      <>
+        <b>Created</b>: {survey.created}
+        <br />
+        <b>Modified</b>: {survey.modified}
+        <br />
+      </>
+    ),
   },
-  { field: "customerName", headerName: "Customer", width: 70 },
-  { field: "status", headerName: "Status", width: 70 },
-];
-
-const rows: VisibleSurvey[] = getAllSurveys().map((survey) => ({
-  id: survey.id,
-  name: survey.name,
-  description: survey.description,
-  customerName: survey.customer.name,
-  status: survey.status,
 }));
 
 const AllSurveys = () => {
@@ -31,13 +33,7 @@ const AllSurveys = () => {
         subtitle="Create and manage surveys"
       />
       <div className="container">
-        <MTable
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-        />
+        <MCollapsibleTable rows={rows} />
       </div>
     </div>
   );

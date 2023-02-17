@@ -2,7 +2,7 @@ import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { MTABLE_DEF_WIDTH } from "../assets/constants";
 
-interface MTableProps {
+interface MDataTableProps {
   rows: object[];
   columns?: DataGridColumn[];
   pageSize?: number;
@@ -19,7 +19,7 @@ export interface DataGridColumn {
   valueGetter?: (params: any) => string;
 }
 
-const MTable = (props: MTableProps) => {
+const MDataTable = (props: MDataTableProps) => {
   const {
     rows,
     columns = [],
@@ -45,7 +45,7 @@ const MTable = (props: MTableProps) => {
   }
 
   return (
-    <div className="mtable">
+    <div className="m-table m-data-table">
       <DataGrid
         rows={rows}
         columns={columns}
@@ -57,4 +57,4 @@ const MTable = (props: MTableProps) => {
   );
 };
 
-export default MTable;
+export default MDataTable;

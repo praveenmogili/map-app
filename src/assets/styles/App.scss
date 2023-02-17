@@ -98,10 +98,21 @@ code {
 /*	Table
 /* -------------------------------------------------------------------------- */
 
-.mtable {
+.m-data-table {
   background-color: white;
   height: 400px;
   width: 100%;
+}
+
+.m-table {
+  a {
+    color: $primary;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      color: $hover-primary;
+    }
+  }
 }
 
 /* -------------------------------------------------------------------------- */
