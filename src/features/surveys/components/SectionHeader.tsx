@@ -11,9 +11,9 @@ const SectionHeader = (props: SectionHeaderProps) => {
 
   return (
     <div className="card section-header">
-      <h3>{title}</h3>
+      <h3 className="m-0">{title}</h3>
       <p className="subtitle">{subtitle}</p>
-      <hr className="short-sep" />
+      {foreword ? <hr className="short-sep" /> : null}
       <p className="paragraph">{foreword}</p>
     </div>
   );

@@ -2,14 +2,14 @@ import React from "react";
 
 interface MStepsProps {
   steps: { name: string; onClick: () => void }[];
-  current: number;
+  current?: number;
 }
 
 const MSteps = (props: MStepsProps) => {
-  const { steps, current } = props;
+  const { steps, current = 0 } = props;
 
   return (
-    <div className="m-steps">
+    <div className="my-3 m-steps">
       <p className="m-0 steps-title">Steps</p>
       <hr className="short-sep" />
       <div className="steps-list">
