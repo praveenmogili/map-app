@@ -1,9 +1,7 @@
-import React from 'react';
-import { bool } from 'prop-types';
-import { StyledMenu } from './Menu.styled';
+import React from "react";
+import { StyledMenu } from "./Menu.styled";
 
-const Menu = ({ menuOpen, ...props }) => {
-  
+const Menu = ({ menuOpen, ...props }: { menuOpen: boolean }) => {
   const isHidden = menuOpen ? true : false;
   const tabIndex = isHidden ? 0 : -1;
 
@@ -14,16 +12,12 @@ const Menu = ({ menuOpen, ...props }) => {
       </a>
       <a href="/" tabIndex={tabIndex}>
         Pricing
-        </a>
+      </a>
       <a href="/" tabIndex={tabIndex}>
         Contact
-        </a>
+      </a>
     </StyledMenu>
-  )
-}
-
-Menu.propTypes = {
-  open: bool.isRequired,
-}
+  );
+};
 
 export default Menu;

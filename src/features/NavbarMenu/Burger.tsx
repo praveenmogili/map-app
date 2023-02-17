@@ -1,8 +1,15 @@
 import React from "react";
-import { bool, func } from "prop-types";
+import { SET_STATE_TYPE } from "../../assets/constants";
 import { StyledBurger } from "./Burger.styled";
 
-const Burger = ({ menuOpen, setMenuOpen, ...props }) => {
+const Burger = ({
+  menuOpen,
+  setMenuOpen,
+  ...props
+}: {
+  menuOpen: boolean;
+  setMenuOpen: SET_STATE_TYPE;
+}) => {
   const isExpanded = menuOpen ? true : false;
 
   return (
@@ -18,11 +25,6 @@ const Burger = ({ menuOpen, setMenuOpen, ...props }) => {
       <span />
     </StyledBurger>
   );
-};
-
-Burger.propTypes = {
-  open: bool.isRequired,
-  setOpen: func.isRequired,
 };
 
 export default Burger;

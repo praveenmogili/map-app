@@ -70,16 +70,16 @@ code {
 .navbar {
   background-color: $primary;
 
-  & .nav-link {
+  .nav-link {
     color: white;
   }
 
-  & .navbar-brand {
+  .navbar-brand {
     color: white;
     font-weight: bold;
   }
 
-  & .dropdown-toggle::after {
+  .dropdown-toggle::after {
     content: none;
   }
 }
@@ -113,9 +113,6 @@ code {
 }
 
 .h2-title-subtitle {
-  h2.title {
-    margin: 0;
-  }
   p.subtitle {
     color: $subtitle;
   }

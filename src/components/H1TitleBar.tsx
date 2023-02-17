@@ -1,6 +1,10 @@
 import React from "react";
 
-const H1TitleBar = (props) => {
+interface H1TitleBarProps {
+  title: string;
+}
+
+const H1TitleBar = (props: H1TitleBarProps) => {
   const { title } = props;
   return (
     <div className="h1-title-bar pt-1 pb-1 w-100">
