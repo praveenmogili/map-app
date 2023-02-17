@@ -1,4 +1,4 @@
-import * as sampleData from "./sampleData.json";
+import sampleData from "./sampleData.json";
 
 interface Customer {
   id: string;
@@ -9,11 +9,19 @@ interface Customer {
 interface Survey {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   customer: Customer;
   created: string;
   modified: string;
   template: string;
+  status: string;
+}
+
+export interface VisibleSurvey {
+  id: string;
+  name: string;
+  description?: string;
+  customerName: string;
   status: string;
 }
 

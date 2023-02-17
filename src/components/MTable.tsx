@@ -10,12 +10,13 @@ interface MTableProps {
   checkboxSelection?: boolean;
 }
 
-interface DataGridColumn {
+export interface DataGridColumn {
   field: string;
   headerName: string;
   width: number;
   type?: string;
   sortable?: boolean;
+  valueGetter?: (params: any) => string;
 }
 
 const MTable = (props: MTableProps) => {

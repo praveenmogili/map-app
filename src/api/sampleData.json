@@ -16,7 +16,7 @@
     },
     {
       "id": "sur2",
-      "name": "Order Test 1",
+      "name": "Order Test 2",
       "description": "desc1",
       "customer": {
         "id": "cus1",
