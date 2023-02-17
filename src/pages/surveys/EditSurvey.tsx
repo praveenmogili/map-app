@@ -7,14 +7,14 @@ import MChooseSurveyTemplate from "../../features/surveys/components/MChooseSurv
 const EditSurvey = () => {
   const survey_permissions = [
     {
-      name: "All employees",
-      permission: (
+      Name: "All employees",
+      Permission: (
         <MSmallDropdown defaultOption="Read" otherOptions={["Write"]} />
       ),
     },
     {
-      name: "All managers",
-      permission: (
+      Name: "All managers",
+      Permission: (
         <MSmallDropdown defaultOption="Read" otherOptions={["Write"]} />
       ),
     },
