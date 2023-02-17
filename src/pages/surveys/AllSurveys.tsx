@@ -24,7 +24,7 @@ const rows: MCollapsibleTableRow[] = getAllSurveys().map((survey) => ({
 
 const AllSurveys = () => {
   return (
-    <div id="all-surveys" className="container">
+    <div id="all-surveys">
       <H2TitleSubtitle
         title="Customer surveys"
         subtitle="Create and manage surveys"
