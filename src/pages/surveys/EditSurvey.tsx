@@ -1,9 +1,25 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import { H2TitleSubtitle } from "../../components";
-import MBoxRightBtn from "../../features/surveys/components/MBoxRightBtn";
+import { H2TitleSubtitle, MSmallDropdown } from "../../components";
+import MAccessPermissions from "../../features/surveys/components/MAccessPermissions";
+import MChooseSurveyTemplate from "../../features/surveys/components/MChooseSurveyTemplate";
 
 const EditSurvey = () => {
+  const survey_permissions = [
+    {
+      name: "All employees",
+      permission: (
+        <MSmallDropdown defaultOption="Read" otherOptions={["Write"]} />
+      ),
+    },
+    {
+      name: "All managers",
+      permission: (
+        <MSmallDropdown defaultOption="Read" otherOptions={["Write"]} />
+      ),
+    },
+  ];
+
   return (
     <div id="edit-survey">
       <H2TitleSubtitle
@@ -41,14 +57,18 @@ const EditSurvey = () => {
           />
 
           <Form.Label>Survey template</Form.Label>
-          <MBoxRightBtn
-            title="Lacks Valley Survey Template"
-            subtitle="Tailored Survey for Lacks Valley Furniture"
-            button1={<Button>Choose</Button>}
-          />
+          <div className="mb-3">
+            <MChooseSurveyTemplate
+              title="Lacks Valley Survey Template"
+              subtitle="Tailored Survey for Lacks Valley Furniture"
+              button1={<Button>Choose</Button>}
+            />
+          </div>
 
           <Form.Label>Access permissions</Form.Label>
-          {/*  */}
+          <div className="mb-4">
+            <MAccessPermissions rows={survey_permissions} />
+          </div>
 
           <div className="d-flex flex-row flex-gap">
             <Button variant="primary" type="submit">

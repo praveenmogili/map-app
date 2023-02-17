@@ -28,5 +28,19 @@
       "template": "Template 1",
       "status": "active"
     }
+  ],
+  "survey_permissions": [
+    {
+      "User": "Admin",
+      "Permission": "read"
+    },
+    {
+      "User": "Engineers",
+      "Permission": "read"
+    },
+    {
+      "User": "Joe Dane",
+      "Permission": "write"
+    }
   ]
 }

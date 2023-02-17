@@ -1,16 +1,16 @@
 // main color themes
-$primary: rgb(0, 169, 79);
-$secondary: rgb(245, 247, 246);
-$tertiary: rgb(203, 226, 207);
+$primary: hsl(148, 100%, 33.1%);
+$secondary: hsl(150, 11.1%, 96.5%);
+$tertiary: hsl(130, 28.4%, 84.1%);
+
+// main color theme variants
+$hover-primary: hsl(148, 100%, 25%);
+$hover-secondary: hsl(150, 11.1%, 90%);
+$hover-tertiary: hsl(130, 28.4%, 75%);
 
 // other colors
-$hover-primary: rgb(0, 169, 79, 0.8);
 $btn-border: rgb(206, 212, 218);
 $translucent-black: rgba(0, 0, 0, 0.5);
 $subtitle: #6c757d;
 $border-gray: #D7B6B6;
 $darkgreen: #323232;
-
-// static elements
-$navbar-height: 60px;
-$footer-height: 60px;
