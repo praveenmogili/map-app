@@ -9,8 +9,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { ToastContainer } from "react-toastify";
 import { useOnClickOutside } from "./hooks/useOnClickOutside";
-import Burger from "./features/navbar-menu/Burger";
-import Menu from "./features/navbar-menu/Menu";
+// import Burger from "./features/navbar-menu/Burger";
+// import Menu from "./features/navbar-menu/Menu";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,7 +31,7 @@ const App = () => {
             </Routes>
             <ToastContainer autoClose={2500} />
             <Footer />
-            <div ref={node}>
+            {/* <div ref={node}>
               <FocusLock disabled={!menuOpen}>
                 <Burger
                   menuOpen={menuOpen}
@@ -42,7 +42,7 @@ const App = () => {
                   menuOpen={menuOpen}
                 />
               </FocusLock>
-            </div>
+            </div> */}
           </div>
         </BrowserRouter>
       </ThemeProvider>
