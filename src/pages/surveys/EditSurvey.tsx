@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { H2TitleSubtitle, MSmallDropdown } from "../../components";
-import MAccessPermissions from "../../features/surveys/components/MAccessPermissions";
-import MChooseSurveyTemplate from "../../features/surveys/components/MChooseSurveyTemplate";
+import AccessPermissions from "../../features/surveys/components/AccessPermissions";
+import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 
 const EditSurvey = () => {
   const survey_permissions = [
@@ -58,7 +58,7 @@ const EditSurvey = () => {
 
           <Form.Label>Survey template</Form.Label>
           <div className="mb-3">
-            <MChooseSurveyTemplate
+            <ChooseSurveyTemplate
               title="Lacks Valley Survey Template"
               subtitle="Tailored Survey for Lacks Valley Furniture"
               button1={<Button>Choose</Button>}
@@ -67,7 +67,7 @@ const EditSurvey = () => {
 
           <Form.Label>Access permissions</Form.Label>
           <div className="mb-4">
-            <MAccessPermissions rows={survey_permissions} />
+            <AccessPermissions rows={survey_permissions} />
           </div>
 
           <div className="d-flex flex-row flex-gap">

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface MBoxRightBtnProps {
+interface BoxRightBtnProps {
   title: string;
   subtitle?: string;
   button1?: JSX.Element;
@@ -14,7 +14,7 @@ const TitleSubtitle = (title: string, subtitle?: string) => (
   </div>
 );
 
-const MChooseSurveyTemplate = (props: MBoxRightBtnProps) => {
+const ChooseSurveyTemplate = (props: BoxRightBtnProps) => {
   const { title, subtitle, button1, button2 } = props;
   return (
     <div className="m-box-right-btn bt-input-container d-flex flex-row py-3">
@@ -27,4 +27,4 @@ const MChooseSurveyTemplate = (props: MBoxRightBtnProps) => {
   );
 };
 
-export default MChooseSurveyTemplate;
+export default ChooseSurveyTemplate;

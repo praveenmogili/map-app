@@ -2,7 +2,7 @@ import React from "react";
 import { MCollapsibleTable } from "../../../components";
 import { MCollapsibleTableRow } from "../../../components/MCollapsibleTable";
 
-const MAccessPermissions = (props: { rows: MCollapsibleTableRow[] }) => {
+const AccessPermissions = (props: { rows: MCollapsibleTableRow[] }) => {
   const { rows } = props;
   return (
     <div className="m-access-permissions">
@@ -11,4 +11,4 @@ const MAccessPermissions = (props: { rows: MCollapsibleTableRow[] }) => {
   );
 };
 
-export default MAccessPermissions;
+export default AccessPermissions;
