@@ -1,20 +1,22 @@
-import * as sampleData from './sampleData.json';
+import * as sampleData from "./sampleData.json";
 
 interface Customer {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
+  email: string;
 }
 
 interface Survey {
-    id: string;
-    name: string;
-    description: string;
-    customer: Customer;
-    status: string;
-    created: Date;
-    modified: Date;
+  id: string;
+  name: string;
+  description: string;
+  customer: Customer;
+  created: string;
+  modified: string;
+  template: string;
+  status: string;
 }
 
-export function getAllSurveys(): any[] {
+export function getAllSurveys(): Survey[] {
   return sampleData.surveys;
 }

@@ -6,10 +6,27 @@
       "description": "desc1",
       "customer": {
         "id": "cus1",
-        "name": "John Smith"
+        "name": "John Smith",
+        "email": "j@gmail.com"
       },
       "created": "2022-12-12",
-      "modified": "2022-12-13"
+      "modified": "2022-12-13",
+      "template": "Template 1",
+      "status": "active"
+    },
+    {
+      "id": "sur2",
+      "name": "Order Test 1",
+      "description": "desc1",
+      "customer": {
+        "id": "cus1",
+        "name": "John Smith",
+        "email": "j@gmail.com"
+      },
+      "created": "2022-12-12",
+      "modified": "2022-12-13",
+      "template": "Template 1",
+      "status": "active"
     }
   ]
 }
