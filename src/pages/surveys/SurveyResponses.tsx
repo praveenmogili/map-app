@@ -1,5 +1,5 @@
 import React from "react";
-import { H2TitleSubtitle } from "../../components";
+import { H2TitleSubtitle, MSteps } from "../../components";
 import SectionHeader from "../../features/surveys/components/SectionHeader";
 
 const SurveyResponses = () => {
@@ -8,8 +8,15 @@ const SurveyResponses = () => {
 The survey will take approximately 5 minutes to complete and will ask you about your current usage of cloud computing services, your future plans and expectations, and your level of satisfaction with your current provider. Your input is extremely valuable to us and will help us deliver the most relevant and effective solutions for you. 
 
 Thank you for your time and support.`;
+  const steps = [
+    { name: "Step 1", onClick: () => {} },
+    { name: "Step 2", onClick: () => {} },
+    { name: "Step 3", onClick: () => {} },
+  ];
+
   return (
     <div>
+      <MSteps steps={steps} current={1} />
       <H2TitleSubtitle
         title="Survey Responses"
         subtitle="View and manage survey responses"

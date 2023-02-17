@@ -113,7 +113,7 @@ p.subtitle {
 }
 
 hr.short-sep {
-  border-top: 1px solid $primary;
+  border-top: 2px solid $primary;
   width: 50%;
   margin-top: 0;
   margin-bottom: 0.75rem;
@@ -202,39 +202,47 @@ hr.short-sep {
 }
 
 #surveys .m-steps {
+  max-width: 400px;
+
   .steps-title {
     font-size: 1.75rem;
     color: $primary;
   }
 
   .steps-list span.dot {
-    height: 25px;
-    width: 25px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
     display: inline-block;
   }
 
-  .steps-list .step-p {
-    .done {
+  .steps-list a.step-p {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .steps-list .step-item {
+    &.done {
       span.dot {
         background-color: $primary;
       }
-      color: $primary;
     }
 
-    .current {
+    &.current {
       span.dot {
         background-color: $primary;
       }
-      color: $primary;
       font-weight: bold;
     }
 
-    .to-do {
+    &.to-do {
       span.dot {
-        background-color: $white;
+        background-color: white;
       }
-      color: $btn-border;
     }
   }
 }

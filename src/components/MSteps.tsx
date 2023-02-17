@@ -1,29 +1,34 @@
 import React from "react";
 
-const MSteps = (props: { steps: string[]; current: number }) => {
+interface MStepsProps {
+  steps: { name: string; onClick: () => void }[];
+  current: number;
+}
+
+const MSteps = (props: MStepsProps) => {
   const { steps, current } = props;
 
   return (
     <div className="m-steps">
-      <p className="steps-title">Steps</p>
+      <p className="m-0 steps-title">Steps</p>
       <hr className="short-sep" />
       <div className="steps-list">
         {steps.map((step, i) => {
-          let stepClass;
+          let stepClass = "d-flex flex-row align-items-center step-item ";
           if (i < current) {
-            stepClass = "step-p done";
+            stepClass += "done";
           } else if (i === current) {
-            stepClass = "step-p current";
+            stepClass += "current";
           } else {
-            stepClass = "step-p to-do";
+            stepClass += "to-do";
           }
           return (
-            <>
-              <p className={stepClass} key={i}>
-                <span className="dot" />
-                {step}
-              </p>
-            </>
+            <div className={stepClass} key={i}>
+              <span className="dot me-2" />
+              <a onClick={step.onClick} href="#" className="step-p m-0">
+                {step.name}
+              </a>
+            </div>
           );
         })}
       </div>
