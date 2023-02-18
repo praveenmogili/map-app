@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import { H1TitleBar, MSteps } from "../../components";
+import SurveyCard from "../../features/surveys/components/SurveyCard";
 import AllSurveys from "./AllSurveys";
 import EditSurvey from "./EditSurvey";
 import SurveyResponses from "./SurveyResponses";
@@ -22,6 +23,7 @@ const Surveys = () => {
           </Col>
           <Col>
             <SurveyResponses />
+            <SurveyCard />
           </Col>
         </Row>
         {/* <EditSurvey /> */}

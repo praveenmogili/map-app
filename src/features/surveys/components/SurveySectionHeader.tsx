@@ -1,12 +1,12 @@
 import React from "react";
 
-interface SectionHeaderProps {
+interface SurveySectionHeaderProps {
   title: string;
   subtitle?: string;
   foreword?: string;
 }
 
-const SectionHeader = (props: SectionHeaderProps) => {
+const SectionSectionHeader = (props: SurveySectionHeaderProps) => {
   const { title, subtitle, foreword } = props;
 
   return (
@@ -19,4 +19,4 @@ const SectionHeader = (props: SectionHeaderProps) => {
   );
 };
 
-export default SectionHeader;
+export default SectionSectionHeader;
