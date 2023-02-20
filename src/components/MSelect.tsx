@@ -1,24 +1,44 @@
 import React from "react";
-import Select, { GroupBase, OptionsOrGroups } from "react-select";
+import Select, { ActionMeta, SingleValue } from "react-select";
 import { THEME_COLORS } from "../assets/constants";
 
 interface MSelectProps {
-  options?: OptionsOrGroups<unknown, GroupBase<unknown>>;
+  options?: string[];
+  defaultValue?: string;
+  onChange?: (
+    newValue: SingleValue<{
+      value: string;
+      label: string;
+    }>,
+    actionMeta: ActionMeta<{
+      value: string;
+      label: string;
+    }>
+  ) => void;
 }
 
+const options2 = ["Chocolate", "Strawberry", "Vanilla"];
+
 const MSelect = (props: MSelectProps) => {
-  const {
-    options = [
-      { value: "chocolate", label: "Chocolate" },
-      { value: "strawberry", label: "Strawberry" },
-      { value: "vanilla", label: "Vanilla" },
-    ],
-  } = props;
+  const { options = options2, onChange, defaultValue } = props;
+  const adjustedOptions = options.map((option) => ({
+    value: option,
+    label: option,
+  }));
+  const adjustedDefaultValue = defaultValue
+    ? {
+        value: defaultValue,
+        label: defaultValue,
+      }
+    : undefined;
+
   return (
     <>
       <Select
-        options={options}
+        options={adjustedOptions}
         isSearchable
+        onChange={onChange}
+        defaultValue={adjustedDefaultValue}
         styles={{
           option: (baseStyles, state) => ({
             ...baseStyles,
