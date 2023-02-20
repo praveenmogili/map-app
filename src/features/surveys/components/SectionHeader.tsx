@@ -6,7 +6,7 @@ interface SurveySectionHeaderProps {
   foreword?: string;
 }
 
-const SectionSectionHeader = (props: SurveySectionHeaderProps) => {
+const SectionHeader = (props: SurveySectionHeaderProps) => {
   const { title, subtitle, foreword } = props;
 
   return (
@@ -19,4 +19,4 @@ const SectionSectionHeader = (props: SurveySectionHeaderProps) => {
   );
 };
 
-export default SectionSectionHeader;
+export default SectionHeader;

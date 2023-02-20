@@ -10,7 +10,7 @@ const AllSurveys = () => {
 
   const rows: MCollapsibleTableRow[] = getAllSurveys().map((survey) => ({
     Name: (
-      <a href="#" onClick={() => navigate("/surveys/editSurvey")}>
+      <a href="#" onClick={() => navigate("/surveys/surveyResponses")}>
         {survey.name}
       </a>
     ),
@@ -39,7 +39,7 @@ const AllSurveys = () => {
       <Button
         variant="primary"
         className="mb-3"
-        onClick={() => navigate("/surveys/surveyResponses")}
+        onClick={() => navigate("/surveys/editSurvey")}
       >
         Create survey
       </Button>
