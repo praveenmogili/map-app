@@ -4,3 +4,8 @@ export const PERMISSIONS = Object.freeze({
   READ: "read",
   WRITE: "write",
 });
+
+export const THEME_COLORS = Object.freeze({
+  // refer to _variables.scss for more colors
+  PRIMARY: "hsl(148, 100%, 33.1%)",
+});
