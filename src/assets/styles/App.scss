@@ -269,3 +269,13 @@ hr.short-sep {
 }
 
 
+
+.modal-right {
+  position: fixed;
+  width: 65vw;
+  max-width: none;
+  margin: 0;
+  right: 0;
+  top: 0;
+  left: auto;
+}

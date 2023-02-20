@@ -1,12 +1,13 @@
-import React from "react";
-import { Form, Button } from "react-bootstrap";
-import { MH2TitleSubtitle, MSmallDropdown } from "../../components";
+import React, { useState } from "react";
+import { Form, Button, Modal } from "react-bootstrap";
+import { MCollapsibleTable, MH2TitleSubtitle, MSmallDropdown } from "../../components";
 import MSelect from "../../components/MSelect";
 import MStepsAndContent from "../../components/MStepsAndContent";
 import AccessPermissions from "../../features/surveys/components/AccessPermissions";
 import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 
 const EditSurvey = () => {
+  const [show, setShow] = useState(true);
   const survey_permissions = [
     {
       Name: "All employees",
@@ -20,6 +21,29 @@ const EditSurvey = () => {
 
   return (
     <div id="surveys-edit" className="container-fluid px-4">
+      <>
+        <Button variant="primary" onClick={() => setShow(true)}>
+          Custom Width Modal
+        </Button>
+
+        <Modal
+          show={show}
+          onHide={() => setShow(false)}
+          dialogClassName="modal-right"
+          aria-labelledby="example-custom-modal-styling-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-custom-modal-styling-title">
+              Custom Modal Styling
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <>
+              <MCollapsibleTable rows={survey_permissions} />
+            </>
+          </Modal.Body>
+        </Modal>
+      </>
       <MH2TitleSubtitle
         title="Edit survey"
         subtitle="Edit survey details for your customer"
