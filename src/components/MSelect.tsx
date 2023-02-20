@@ -15,12 +15,13 @@ interface MSelectProps {
       label: string;
     }>
   ) => void;
+  className?: string;
 }
 
 const options2 = ["Chocolate", "Strawberry", "Vanilla"];
 
 const MSelect = (props: MSelectProps) => {
-  const { options = options2, onChange, defaultValue } = props;
+  const { options = options2, onChange, defaultValue, className } = props;
   const adjustedOptions = options.map((option) => ({
     value: option,
     label: option,
@@ -35,6 +36,7 @@ const MSelect = (props: MSelectProps) => {
   return (
     <>
       <Select
+        className={className}
         options={adjustedOptions}
         isSearchable
         onChange={onChange}

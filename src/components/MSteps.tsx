@@ -1,12 +1,19 @@
 import React from "react";
 
 interface MStepsProps {
-  steps: { name: string; onClick: () => void }[];
+  steps?: { name: string; onClick: () => void }[];
   current?: number;
 }
 
 const MSteps = (props: MStepsProps) => {
-  const { steps, current = 0 } = props;
+  const {
+    steps = [
+      { name: "Step 1", onClick: () => {} },
+      { name: "Step 2", onClick: () => {} },
+      { name: "Step 3", onClick: () => {} },
+    ],
+    current = 0,
+  } = props;
 
   return (
     <div className="my-3 m-steps">

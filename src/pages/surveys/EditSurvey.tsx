@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import { H2TitleSubtitle, MSmallDropdown } from "../../components";
+import { MH2TitleSubtitle, MSmallDropdown } from "../../components";
+import MSelect from "../../components/MSelect";
 import AccessPermissions from "../../features/surveys/components/AccessPermissions";
 import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 
@@ -8,21 +9,17 @@ const EditSurvey = () => {
   const survey_permissions = [
     {
       Name: "All employees",
-      Permission: (
-        <MSmallDropdown defaultOption="Read" otherOptions={["Write"]} />
-      ),
+      Permission: <MSelect className="w-50" options={["Read", "Write"]} />,
     },
     {
       Name: "All managers",
-      Permission: (
-        <MSmallDropdown defaultOption="Read" otherOptions={["Write"]} />
-      ),
+      Permission: <MSelect className="w-50" options={["Read", "Write"]} />,
     },
   ];
 
   return (
     <div id="edit-survey">
-      <H2TitleSubtitle
+      <MH2TitleSubtitle
         title="Edit survey"
         subtitle="Edit survey details for your customer"
       />

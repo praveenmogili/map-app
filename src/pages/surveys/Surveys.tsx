@@ -1,33 +1,29 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
-import { H1TitleBar, MSteps } from "../../components";
+import { MH1TitleBar, MSteps } from "../../components";
 import SurveyCard from "../../features/surveys/components/SurveyCard";
 import AllSurveys from "./AllSurveys";
 import EditSurvey from "./EditSurvey";
 import SurveyResponses from "./SurveyResponses";
-
-const steps = [
-  { name: "Step 1", onClick: () => {} },
-  { name: "Step 2", onClick: () => {} },
-  { name: "Step 3", onClick: () => {} },
-];
+import { useNavigate } from "react-router-dom";
 
 const Surveys = () => {
+  const navigate = useNavigate();
   return (
     <div id="surveys">
-      <H1TitleBar title="Surveys" />
+      <MH1TitleBar title="Surveys" />
       <div className="container-fluid px-4">
         <Row>
           <Col lg={2}>
-            <MSteps steps={steps} />
+            <MSteps />
           </Col>
           <Col>
+            <AllSurveys />
             <SurveyResponses />
             <SurveyCard />
           </Col>
         </Row>
-        {/* <EditSurvey /> */}
-        {/* <AllSurveys /> */}
+        <EditSurvey />
       </div>
     </div>
   );

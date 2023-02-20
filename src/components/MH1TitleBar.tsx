@@ -1,11 +1,11 @@
 import React from "react";
 
-interface H1TitleBarProps {
+interface MH1TitleBarProps {
   title: string;
   className?: string;
 }
 
-const H1TitleBar = (props: H1TitleBarProps) => {
+const MH1TitleBar = (props: MH1TitleBarProps) => {
   const { title, className } = props;
   return (
     <div className={`h1-title-bar py-1 w-100 ${className}`}>
@@ -16,4 +16,4 @@ const H1TitleBar = (props: H1TitleBarProps) => {
   );
 };
 
-export default H1TitleBar;
+export default MH1TitleBar;

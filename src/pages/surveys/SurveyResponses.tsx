@@ -1,5 +1,5 @@
 import React from "react";
-import { H2TitleSubtitle, MSteps } from "../../components";
+import { MH2TitleSubtitle, MSteps } from "../../components";
 import SectionSectionHeader from "../../features/surveys/components/SurveySectionHeader";
 
 const SurveyResponses = () => {
@@ -12,7 +12,7 @@ Thank you for your time and support.`;
 
   return (
     <div>
-      <H2TitleSubtitle
+      <MH2TitleSubtitle
         title="Survey Responses"
         subtitle="View and manage survey responses"
       />

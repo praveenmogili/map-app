@@ -1,35 +1,44 @@
 import React from "react";
 import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
 import { getAllSurveys } from "../../api/surveys";
-import { H2TitleSubtitle, MCollapsibleTable } from "../../components/index";
+import { MH2TitleSubtitle, MCollapsibleTable } from "../../components";
 import { MCollapsibleTableRow } from "../../components/MCollapsibleTable";
-
-const rows: MCollapsibleTableRow[] = getAllSurveys().map((survey) => ({
-  Name: <a href="#">{survey.name}</a>,
-  Description: survey.description,
-  Customer: survey.customer.name,
-  Status: survey.status,
-  expandableAttr: {
-    displayName: "Additional info",
-    jsx: (
-      <>
-        <b>Created</b>: {survey.created}
-        <br />
-        <b>Modified</b>: {survey.modified}
-        <br />
-      </>
-    ),
-  },
-}));
+import { useNavigate } from "react-router-dom";
 
 const AllSurveys = () => {
+  const navigate = useNavigate();
+
+  const rows: MCollapsibleTableRow[] = getAllSurveys().map((survey) => ({
+    Name: (
+      <a href="#" onClick={() => navigate("/surveys/editSurvey")}>
+        {survey.name}
+      </a>
+    ),
+    Description: survey.description,
+    Customer: survey.customer.name,
+    Status: survey.status,
+    expandableAttr: {
+      displayName: "Additional info",
+      jsx: (
+        <>
+          <b>Created</b>: {survey.created}
+          <br />
+          <b>Modified</b>: {survey.modified}
+          <br />
+        </>
+      ),
+    },
+  }));
+
   return (
     <div id="all-surveys">
-      <H2TitleSubtitle
+      <MH2TitleSubtitle
         title="Customer surveys"
         subtitle="Create and manage surveys"
       />
-      <Button variant="primary" className="mb-3">Create survey</Button>
+      <Button variant="primary" className="mb-3">
+        Create survey
+      </Button>
       <MCollapsibleTable rows={rows} />
     </div>
   );

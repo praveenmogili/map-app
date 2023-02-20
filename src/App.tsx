@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { ToastContainer } from "react-toastify";
 import { useOnClickOutside } from "./hooks/useOnClickOutside";
+import { EditSurvey, SurveyResponses, Surveys } from "./pages/surveys";
 // import Burger from "./features/navbar-menu/Burger";
 // import Menu from "./features/navbar-menu/Menu";
 
@@ -25,9 +26,14 @@ const App = () => {
         <BrowserRouter>
           <div id="app-router">
             <NavbarMain />
-
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Navigate to="/surveys" />} />
+              <Route path="/surveys" element={<Surveys />} />
+              <Route path="/surveys/editSurvey" element={<EditSurvey />} />
+              <Route
+                path="/surveys/surveyResponses"
+                element={<SurveyResponses />}
+              />
             </Routes>
             <ToastContainer autoClose={2500} />
             <Footer />

@@ -1,12 +1,12 @@
 import React from "react";
 
-interface H2TitleSubtitleProps {
+interface MH2TitleSubtitleProps {
   title: string;
   subtitle?: string;
   className?: string;
 }
 
-const H2TitleSubtitle = (props: H2TitleSubtitleProps) => {
+const MH2TitleSubtitle = (props: MH2TitleSubtitleProps) => {
   const { title, subtitle, className } = props;
   return (
     <div className={`h2-title-subtitle w-100 px-0 py-3 mb-2 ${className}`}>
@@ -16,4 +16,4 @@ const H2TitleSubtitle = (props: H2TitleSubtitleProps) => {
   );
 };
 
-export default H2TitleSubtitle;
+export default MH2TitleSubtitle;
