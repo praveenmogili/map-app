@@ -6,7 +6,9 @@ const NavbarMain = () => {
   return (
     <Navbar expand="lg" className="navbar">
       <Container fluid>
-        <Navbar.Brand href="#home" className="ms-5">MYTHICS Automation Platform</Navbar.Brand>
+        <Navbar.Brand href="/" className="ms-5">
+          MYTHICS Automation Platform
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto me-0">

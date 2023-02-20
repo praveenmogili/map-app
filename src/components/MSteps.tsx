@@ -1,6 +1,6 @@
 import React from "react";
 
-interface MStepsProps {
+export interface MStepsProps {
   steps?: { name: string; onClick: () => void }[];
   current?: number;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { MH2TitleSubtitle, MSmallDropdown } from "../../components";
 import MSelect from "../../components/MSelect";
+import MStepsAndContent from "../../components/MStepsAndContent";
 import AccessPermissions from "../../features/surveys/components/AccessPermissions";
 import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 
@@ -18,7 +19,7 @@ const EditSurvey = () => {
   ];
 
   return (
-    <div id="edit-survey">
+    <div id="surveys-edit" className="container-fluid px-4">
       <MH2TitleSubtitle
         title="Edit survey"
         subtitle="Edit survey details for your customer"

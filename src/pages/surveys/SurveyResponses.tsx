@@ -1,5 +1,6 @@
 import React from "react";
 import { MH2TitleSubtitle, MSteps } from "../../components";
+import MStepsAndContent from "../../components/MStepsAndContent";
 import SectionSectionHeader from "../../features/surveys/components/SurveySectionHeader";
 
 const SurveyResponses = () => {
@@ -9,19 +10,22 @@ The survey will take approximately 5 minutes to complete and will ask you about 
 
 Thank you for your time and support.`;
 
-
   return (
-    <div>
-      <MH2TitleSubtitle
-        title="Survey Responses"
-        subtitle="View and manage survey responses"
-      />
-      <SectionSectionHeader
-        title="Order Test 1"
-        subtitle="A survey to calculate your Oracle needs"
-        foreword={ppp}
-      />
-    </div>
+    <MStepsAndContent
+      content={
+        <div id="surveys-responses">
+          <MH2TitleSubtitle
+            title="Survey Responses"
+            subtitle="View and manage survey responses"
+          />
+          <SectionSectionHeader
+            title="Order Test 1"
+            subtitle="A survey to calculate your Oracle needs"
+            foreword={ppp}
+          />
+        </div>
+      }
+    />
   );
 };
 

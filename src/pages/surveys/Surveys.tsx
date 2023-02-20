@@ -6,25 +6,13 @@ import AllSurveys from "./AllSurveys";
 import EditSurvey from "./EditSurvey";
 import SurveyResponses from "./SurveyResponses";
 import { useNavigate } from "react-router-dom";
+import MStepsAndContent from "../../components/MStepsAndContent";
 
 const Surveys = () => {
-  const navigate = useNavigate();
   return (
-    <div id="surveys">
+    <div id="surveys-main">
       <MH1TitleBar title="Surveys" />
-      <div className="container-fluid px-4">
-        <Row>
-          <Col lg={2}>
-            <MSteps />
-          </Col>
-          <Col>
-            <AllSurveys />
-            <SurveyResponses />
-            <SurveyCard />
-          </Col>
-        </Row>
-        <EditSurvey />
-      </div>
+      <AllSurveys />
     </div>
   );
 };

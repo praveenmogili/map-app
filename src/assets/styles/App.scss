@@ -120,6 +120,57 @@ hr.short-sep {
 }
 
 /* -------------------------------------------------------------------------- */
+/*	MSteps
+/* -------------------------------------------------------------------------- */
+
+.m-steps {
+  max-width: 400px;
+
+  .steps-title {
+    font-size: 1.75rem;
+    color: $primary;
+  }
+
+  .steps-list span.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .steps-list a.step-p {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .steps-list .step-item {
+    &.done {
+      span.dot {
+        background-color: $primary;
+      }
+    }
+
+    &.current {
+      span.dot {
+        background-color: $primary;
+      }
+      font-weight: bold;
+    }
+
+    &.to-do {
+      span.dot {
+        border: 1px solid $border-gray;
+        background-color: white;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /*	Navbar
 /* -------------------------------------------------------------------------- */
 
@@ -183,13 +234,13 @@ hr.short-sep {
 /*	Surveys
 /* -------------------------------------------------------------------------- */
 
-#surveys .m-box-right-btn {
+#surveys-edit .m-box-right-btn {
   .title {
     font-size: 1.75rem;
   }
 }
 
-#surveys .card {
+#surveys-responses .card {
   background-color: white;
   border: 1px solid $btn-border;
   border-radius: 6px;
@@ -197,7 +248,7 @@ hr.short-sep {
   padding: 1rem;
 }
 
-#surveys .card {
+#surveys-responses .card {
   input {
     border: 1px solid $btn-border;
     border-radius: 6px;
@@ -209,57 +260,12 @@ hr.short-sep {
   }
 }
 
-#surveys .card .title {
+#surveys-responses .card .title {
   font-size: 1.4rem;
 }
 
-#surveys .card.section-header {
+#surveys-responses .card.section-header {
   border-top: 10px solid $primary;
 }
 
-#surveys .m-steps {
-  max-width: 400px;
 
-  .steps-title {
-    font-size: 1.75rem;
-    color: $primary;
-  }
-
-  .steps-list span.dot {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-
-  .steps-list a.step-p {
-    color: $primary;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .steps-list .step-item {
-    &.done {
-      span.dot {
-        background-color: $primary;
-      }
-    }
-
-    &.current {
-      span.dot {
-        background-color: $primary;
-      }
-      font-weight: bold;
-    }
-
-    &.to-do {
-      span.dot {
-        border: 1px solid $border-gray;
-        background-color: white;
-      }
-    }
-  }
-}

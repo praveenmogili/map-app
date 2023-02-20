@@ -31,12 +31,16 @@ const AllSurveys = () => {
   }));
 
   return (
-    <div id="all-surveys">
+    <div id="surveys-all" className="container-fluid px-4">
       <MH2TitleSubtitle
         title="Customer surveys"
         subtitle="Create and manage surveys"
       />
-      <Button variant="primary" className="mb-3">
+      <Button
+        variant="primary"
+        className="mb-3"
+        onClick={() => navigate("/surveys/surveyResponses")}
+      >
         Create survey
       </Button>
       <MCollapsibleTable rows={rows} />
