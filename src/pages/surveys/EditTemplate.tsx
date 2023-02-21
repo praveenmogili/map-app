@@ -31,6 +31,14 @@ const EditTemplate = () => {
     },
   ];
 
+  function handleBlockSelection(newSelection: string[]) {
+    setBlocksSelected(
+      allBlocks
+        .filter((block) => newSelection.includes(block.id))
+        .map((block) => block.name)
+    );
+  }
+
   const ChooseBlocksModal = (
     <Modal
       show={show}
@@ -49,7 +57,7 @@ const EditTemplate = () => {
           columns={BLOCK_COLUMNS}
           className="mb-3"
           checkboxSelection
-          onSelectionModelChange={(newSelection) => {}}
+          onSelectionModelChange={handleBlockSelection}
         />
         <MButtonsRow
           buttons={[
