@@ -28,3 +28,15 @@ export function getAllSurveys(): Survey[] {
 
   return surveys;
 }
+
+export interface SurveyTemplate {
+  id: string;
+  name: string;
+  description?: string;
+  created: string;
+  modified: string;
+}
+
+export function getAllSurveyTemplates(): SurveyTemplate[] {
+  return sampleData.survey_templates;
+}

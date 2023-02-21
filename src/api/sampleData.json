@@ -47,22 +47,32 @@
       "Permission": "write"
     }
   ],
+  "survey_template_columns": [
+    {
+      "field": "Template Name",
+      "headerName": "Template Name",
+      "width": 200
+    },
+    {
+      "field": "Template Description",
+      "headerName": "Template Description",
+      "width": 200
+    }
+  ],
   "survey_templates": [
     {
       "id": "temp1",
       "name": "Template 1",
       "description": "desc1",
       "created": "2022-12-12",
-      "modified": "2022-12-13",
-      "status": "active"
+      "modified": "2022-12-13"
     },
     {
       "id": "temp2",
       "name": "Template 2",
       "description": "desc2",
       "created": "2022-12-12",
-      "modified": "2022-12-13",
-      "status": "active"
+      "modified": "2022-12-13"
     }
   ],
   "block_templates": [

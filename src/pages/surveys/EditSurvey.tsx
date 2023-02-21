@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Button, Modal } from "react-bootstrap";
+import { getAllSurveyTemplates } from "../../api/surveys";
 import {
   MButtonsRow,
   MCollapsibleTable,
@@ -12,32 +14,14 @@ import MStepsAndContent from "../../components/MStepsAndContent";
 import AccessPermissions from "../../features/surveys/components/AccessPermissions";
 import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 
-const surveyTemplates = [
+const SURVEY_TEMPLATE_COLUMNS = [
   {
-    id: 0,
-    "Template Name": "Lacks Valley Survey Template",
-    "Template Description": "Tailored Survey for Lacks Valley Furniture",
-  },
-  {
-    id: 1,
-    "Template Name": "Lacks Valley Survey Template 2",
-    "Template Description": "Tailored Survey for Lacks Valley Furniture 2",
-  },
-];
-
-const surveyTemplateColumns = [
-  {
-    field: "id",
-    headerName: "ID",
-    width: 70,
-  },
-  {
-    field: "Template Name",
+    field: "name",
     headerName: "Template Name",
     width: 200,
   },
   {
-    field: "Template Description",
+    field: "description",
     headerName: "Template Description",
     width: 200,
   },
@@ -45,7 +29,11 @@ const surveyTemplateColumns = [
 
 const EditSurvey = () => {
   const [show, setShow] = useState(false);
-  const [templateID, setTemplateID] = useState(0);
+  const surveyTemplates = getAllSurveyTemplates();
+  const [templateId, setTemplateID] = useState(surveyTemplates[0].id);
+  const currentTemplate = surveyTemplates.find((t) => t.id === templateId)!;
+  const navigate = useNavigate();
+
   const surveyPermissions = [
     {
       Name: "All employees",
@@ -91,8 +79,8 @@ const EditSurvey = () => {
         <Form.Label>Survey template</Form.Label>
         <div className="mb-3">
           <ChooseSurveyTemplate
-            title={surveyTemplates[templateID]["Template Name"]}
-            subtitle={surveyTemplates[templateID]["Template Description"]}
+            title={currentTemplate?.name}
+            subtitle={currentTemplate?.description}
             button1={<Button onClick={() => setShow(true)}>Choose</Button>}
           />
         </div>
@@ -108,12 +96,15 @@ const EditSurvey = () => {
               variant: "primary",
               type: "submit",
               text: "Submit",
+              onClick: () => navigate("/surveys"),
             },
             {
               text: "Save draft",
+              onClick: () => navigate("/surveys"),
             },
             {
               text: "Cancel",
+              onClick: () => navigate("/surveys"),
             },
           ]}
         />
@@ -136,7 +127,7 @@ const EditSurvey = () => {
       <Modal.Body>
         <MDataTable
           rows={surveyTemplates}
-          columns={surveyTemplateColumns}
+          columns={SURVEY_TEMPLATE_COLUMNS}
           className="mb-3"
           onSelectionModelChange={(newSelection) => {
             setTemplateID(newSelection[0]);

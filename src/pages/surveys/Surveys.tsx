@@ -5,7 +5,6 @@ import Card from "../../features/surveys/components/Card";
 import AllSurveys from "./AllSurveys";
 import EditSurvey from "./EditSurvey";
 import SurveyResponses from "./SurveyResponses";
-import { useNavigate } from "react-router-dom";
 import MStepsAndContent from "../../components/MStepsAndContent";
 
 const Surveys = () => {
