@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import {
   MButtonsRow,
+  MDataTable,
   MH2TitleSubtitle,
   MSidepanelAndContent,
   MSortable,
@@ -14,17 +15,70 @@ import AddIcon from "@mui/icons-material/Add";
 const EditTemplate = () => {
   const navigate = useNavigate();
   const allBlocks = getAllBlocks();
-  const [blocksSelected, setBlocksSelected] = useState(["1", "2"]);
+  const [blocksSelected, setBlocksSelected] = useState([allBlocks[0].name]);
+  const [show, setShow] = useState(false);
+
+  const BLOCK_COLUMNS = [
+    {
+      field: "name",
+      headerName: "Block Name",
+      width: 200,
+    },
+    {
+      field: "description",
+      headerName: "Block Description",
+      width: 200,
+    },
+  ];
+
+  const ChooseBlocksModal = (
+    <Modal
+      show={show}
+      onHide={() => setShow(false)}
+      dialogClassName="modal-right"
+      aria-labelledby="example-custom-modal-styling-title"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="example-custom-modal-styling-title">
+          Custom Modal Styling
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <MDataTable
+          rows={allBlocks}
+          columns={BLOCK_COLUMNS}
+          className="mb-3"
+          checkboxSelection
+          onSelectionModelChange={(newSelection) => {}}
+        />
+        <MButtonsRow
+          buttons={[
+            {
+              variant: "primary",
+              type: "submit",
+              text: "Confirm",
+              onClick: () => setShow(false),
+            },
+          ]}
+        />
+      </Modal.Body>
+    </Modal>
+  );
 
   const BlockOrdering = (
-    <>
-      <div className="block-ordering">
-        <button className="add-block">
-          <AddIcon />
-        </button>
-        <MSortable items={blocksSelected} setItems={setBlocksSelected} />
-      </div>
-    </>
+    <div className="block-ordering">
+      <button
+        className="add-block"
+        onClick={(e) => {
+          e.preventDefault();
+          setShow(true);
+        }}
+      >
+        <AddIcon />
+      </button>
+      <MSortable items={blocksSelected} setItems={setBlocksSelected} />
+      {ChooseBlocksModal}
+    </div>
   );
 
   const SurveyForm = (
