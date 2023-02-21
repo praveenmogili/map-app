@@ -10,21 +10,21 @@ interface Survey {
   id: string;
   name: string;
   description?: string;
-  customer: Customer;
+  customerId: string;
   created: string;
   modified: string;
-  template: string;
+  templateId: string;
   status: string;
-}
-
-export interface VisibleSurvey {
-  id: string;
-  name: string;
-  description?: string;
-  customerName: string;
-  status: string;
+  customer?: Customer;
 }
 
 export function getAllSurveys(): Survey[] {
-  return sampleData.surveys;
+  const surveys: Survey[] = sampleData.surveys;
+  surveys.forEach((survey) => {
+    survey.customer = sampleData.customers.find(
+      (customer) => customer.id === survey.customerId
+    );
+  });
+
+  return surveys;
 }

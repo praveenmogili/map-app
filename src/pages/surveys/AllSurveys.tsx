@@ -15,7 +15,7 @@ const AllSurveys = () => {
       </a>
     ),
     Description: survey.description,
-    Customer: survey.customer.name,
+    Customer: survey.customer?.name,
     Status: survey.status,
     expandableAttr: {
       displayName: "Additional info",

@@ -44,7 +44,7 @@ const surveyTemplateColumns = [
 ];
 
 const EditSurvey = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [templateID, setTemplateID] = useState(0);
   const surveyPermissions = [
     {

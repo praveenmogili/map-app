@@ -1,32 +1,36 @@
 {
+  "customers": [
+    {
+      "id": "cus1",
+      "name": "John Smith",
+      "email": "jsmith@gmail.com"
+    },
+    {
+      "id": "cus2",
+      "name": "Jane Doe",
+      "email": "jdoe@gmail.com"
+    }
+  ],
   "surveys": [
     {
       "id": "sur1",
       "name": "Order Test 1",
       "description": "desc1",
-      "customer": {
-        "id": "cus1",
-        "name": "John Smith",
-        "email": "j@gmail.com"
-      },
+      "customerId": "cus1",
       "created": "2022-12-12",
       "modified": "2022-12-13",
-      "template": "Template 1",
-      "status": "active"
+      "templateId": "temp1",
+      "status": "Completed"
     },
     {
       "id": "sur2",
       "name": "Order Test 2",
       "description": "desc1",
-      "customer": {
-        "id": "cus1",
-        "name": "John Smith",
-        "email": "j@gmail.com"
-      },
+      "customerId": "cus2",
       "created": "2022-12-12",
       "modified": "2022-12-13",
-      "template": "Template 1",
-      "status": "active"
+      "templateId": "temp2",
+      "status": "Draft"
     }
   ],
   "survey_permissions": [
@@ -41,6 +45,40 @@
     {
       "User": "Joe Dane",
       "Permission": "write"
+    }
+  ],
+  "survey_templates": [
+    {
+      "id": "temp1",
+      "name": "Template 1",
+      "description": "desc1",
+      "created": "2022-12-12",
+      "modified": "2022-12-13",
+      "status": "active"
+    },
+    {
+      "id": "temp2",
+      "name": "Template 2",
+      "description": "desc2",
+      "created": "2022-12-12",
+      "modified": "2022-12-13",
+      "status": "active"
+    }
+  ],
+  "block_templates": [
+    {
+      "id": "block1",
+      "name": "Block 1",
+      "description": "desc1",
+      "created": "2022-12-12",
+      "modified": "2022-12-13"
+    },
+    {
+      "id": "block2",
+      "name": "Block 2",
+      "description": "desc2",
+      "created": "2022-12-12",
+      "modified": "2022-12-13"
     }
   ]
 }
