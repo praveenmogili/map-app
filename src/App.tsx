@@ -29,9 +29,9 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Navigate to="/surveys" />} />
               <Route path="/surveys" element={<Surveys />} />
-              <Route path="/surveys/editSurvey" element={<EditSurvey />} />
+              <Route path="/surveys/edit-survey" element={<EditSurvey />} />
               <Route
-                path="/surveys/surveyResponses"
+                path="/surveys/survey-responses"
                 element={<SurveyResponses />}
               />
             </Routes>
