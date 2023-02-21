@@ -6,6 +6,7 @@ import React, { useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {
   Blocks,
+  EditBlock,
   EditSurvey,
   EditTemplate,
   SurveyResponses,
@@ -36,7 +37,7 @@ const App = () => {
             <Route path="/surveys/blocks" element={<Blocks />} />
             <Route
               path="/surveys/block/:blockId"
-              element={<EditTemplate />}
+              element={<EditBlock />}
             />
           </Routes>
           <ToastContainer autoClose={2500} />

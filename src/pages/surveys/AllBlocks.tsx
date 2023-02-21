@@ -39,7 +39,7 @@ const AllBlocks = () => {
       <Button
         variant="primary"
         className="mb-3"
-        onClick={() => navigate("/surveys/template/323/block/overview")}
+        onClick={() => navigate("/surveys/block/23")}
       >
         Create block
       </Button>

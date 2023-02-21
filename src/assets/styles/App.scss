@@ -229,6 +229,7 @@ hr.short-sep {
 /* -------------------------------------------------------------------------- */
 
 #footer {
+  margin-top: 30vh;
   background-color: $darkgreen;
   color: white;
   text-align: center;
@@ -297,7 +298,8 @@ hr.short-sep {
   }
 }
 
-#surveys-responses .card {
+#surveys-responses .card,
+#surveys-edit-block .card {
   background-color: white;
   border: 1px solid $btn-border;
   border-radius: 6px;
@@ -305,7 +307,8 @@ hr.short-sep {
   padding: 1rem;
 }
 
-#surveys-responses .card {
+#surveys-responses .card,
+#surveys-edit-block .card {
   input {
     border: 1px solid $btn-border;
     border-radius: 6px;
@@ -317,11 +320,13 @@ hr.short-sep {
   }
 }
 
-#surveys-responses .card .title {
+#surveys-responses .card .title,
+#surveys-edit-block .card .title {
   font-size: 1.4rem;
 }
 
-#surveys-responses .card.section-header {
+#surveys-responses .card.section-header,
+#surveys-edit-block .card.section-header {
   border-top: 10px solid $primary;
 }
 

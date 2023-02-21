@@ -1,6 +1,8 @@
 import React from "react";
 import Select, { ActionMeta, SingleValue } from "react-select";
 import { THEME_COLORS } from "../assets/constants";
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+
 
 interface MSelectProps {
   options?: string[];
@@ -18,7 +20,7 @@ interface MSelectProps {
   className?: string;
 }
 
-const options2 = ["Chocolate", "Strawberry", "Vanilla"];
+const options2 = [`${<AccessibilityNewIcon />}c`, "Strawberry", "Vanilla"];
 
 const MSelect = (props: MSelectProps) => {
   const { options = options2, onChange, defaultValue, className } = props;
