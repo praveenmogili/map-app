@@ -17,6 +17,11 @@ const EditTemplate = () => {
   const allBlocks = getAllBlocks();
   const [blocksSelected, setBlocksSelected] = useState([allBlocks[0].name]);
   const [show, setShow] = useState(false);
+  
+  const blockSteps = blocksSelected.map((b) => ({
+    name: b,
+  }));
+  const steps = [{ name: "Overview" }, ...blockSteps];
 
   const BLOCK_COLUMNS = [
     {
@@ -123,7 +128,7 @@ const EditTemplate = () => {
               onClick: () => navigate("/surveys/templates"),
             },
             {
-              text: "Save draft",
+              text: "Next",
               onClick: () => navigate("/surveys/templates"),
             },
             {
@@ -148,7 +153,10 @@ const EditTemplate = () => {
 
   return (
     <div id="surveys-edit-template">
-      <MSidepanelAndContent sidepanel={<MSteps />} content={Content} />
+      <MSidepanelAndContent
+        sidepanel={<MSteps steps={steps} />}
+        content={Content}
+      />
     </div>
   );
 };

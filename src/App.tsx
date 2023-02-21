@@ -1,5 +1,5 @@
 import "./assets/styles/App.scss";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 import Footer from "./features/Footer";
 import NavbarMain from "./features/navbar-menu/NavbarMain";
 import React, { useState, useRef } from "react";
@@ -28,7 +28,10 @@ const App = () => {
               element={<SurveyResponses />}
             />
             <Route path="/surveys/templates" element={<Templates />} />
-            <Route path="/surveys/edit-template" element={<EditTemplate />} />
+            <Route
+              path="/surveys/template/:templateId/block/:blockId"
+              element={<EditTemplate />}
+            />
           </Routes>
           <ToastContainer autoClose={2500} />
           <Footer />

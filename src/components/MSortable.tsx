@@ -54,7 +54,6 @@ export default function MSortable(props: MSortableProps) {
         const oldIndex = items.indexOf(active.id);
         const newIndex = items.indexOf(over.id);
 
-        console.log(arrayMove(items, oldIndex, newIndex));
         return arrayMove(items, oldIndex, newIndex);
       });
     }

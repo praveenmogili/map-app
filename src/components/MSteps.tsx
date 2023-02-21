@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface MStepsProps {
-  steps?: { name: string; onClick: () => void }[];
+  steps?: { name: string; onClick?: () => void }[];
   current?: number;
 }
 

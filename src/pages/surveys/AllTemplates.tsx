@@ -11,7 +11,7 @@ const AllTemplates = () => {
   const rows: MCollapsibleTableRow[] = getAllSurveyTemplates().map(
     (template) => ({
       Name: (
-        <a href="#" onClick={() => navigate("/surveys/survey-responses")}>
+        <a href="#" onClick={() => navigate(`/surveys/template/${template.id}/block/overview`)}>
           {template.name}
         </a>
       ),
@@ -39,7 +39,7 @@ const AllTemplates = () => {
       <Button
         variant="primary"
         className="mb-3"
-        onClick={() => navigate("/surveys/edit-template")}
+        onClick={() => navigate("/surveys/template/323/block/overview")}
       >
         Create template
       </Button>
