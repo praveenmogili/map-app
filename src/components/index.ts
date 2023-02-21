@@ -7,3 +7,4 @@ export { default as MSidepanelAndContent } from "./MSidepanelAndContent";
 export { default as MSubsectionList } from "./MSubsectionList";
 export { default as MSmallDropdown } from "./MSmallDropdown";
 export { default as MSteps } from "./MSteps";
+export { default as MSortable } from "./MSortable";
