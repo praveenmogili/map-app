@@ -75,7 +75,7 @@
       "modified": "2022-12-13"
     }
   ],
-  "block_templates": [
+  "blocks": [
     {
       "id": "block1",
       "name": "Block 1",

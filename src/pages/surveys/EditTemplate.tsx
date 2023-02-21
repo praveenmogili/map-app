@@ -1,40 +1,53 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { MButtonsRow, MH2TitleSubtitle, MSidepanelAndContent, MSteps } from "../../components";
+import {
+  MButtonsRow,
+  MH2TitleSubtitle,
+  MSidepanelAndContent,
+  MSteps,
+} from "../../components";
 import { useNavigate } from "react-router-dom";
+import { getAllBlocks } from "../../api/surveys";
+import AddIcon from "@mui/icons-material/Add";
 
 const EditTemplate = () => {
   const navigate = useNavigate();
+  const allBlocks = getAllBlocks();
+
+  const BlockOrdering = (
+    <>
+      <div className="block-ordering">
+        <button className="add-block">
+          <AddIcon />
+        </button>
+      </div>
+    </>
+  );
+
   const SurveyForm = (
     <Form>
       <Form.Group controlId="formSurveyName">
-        <Form.Label>Customer name</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter customer name"
+          placeholder="Enter template name"
           className="mb-3"
         />
 
-        <Form.Label>Customer email</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter customer email"
           className="mb-3"
         />
 
-        <Form.Label>Survey name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter survey name"
-          className="mb-3"
-        />
+        <Form.Label>Automation Blueprint</Form.Label>
+        <Form.Select placeholder="Enter survey name" className="mb-3">
+          <option value="sdsd">fds</option>
+        </Form.Select>
 
-        <Form.Label>Survey description</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter survey description"
-          className="mb-3"
-        />
+        <Form.Label>Block ordering</Form.Label>
+        {BlockOrdering}
 
         <MButtonsRow
           buttons={[

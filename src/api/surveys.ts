@@ -40,3 +40,15 @@ export interface SurveyTemplate {
 export function getAllSurveyTemplates(): SurveyTemplate[] {
   return sampleData.survey_templates;
 }
+
+export interface Block {
+  id: string;
+  name: string;
+  description?: string;
+  created: string;
+  modified: string;
+}
+
+export function getAllBlocks(): Block[] {
+  return sampleData.blocks;
+}
