@@ -1,13 +1,17 @@
 import "./assets/styles/App.scss";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./features/Footer";
-import Home from "./pages/Home";
 import NavbarMain from "./features/navbar-menu/NavbarMain";
 import React, { useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { EditSurvey, SurveyResponses, Surveys } from "./pages/surveys";
+import {
+  EditSurvey,
+  EditTemplate,
+  SurveyResponses,
+  Surveys,
+  Templates,
+} from "./pages/surveys";
 import { ToastContainer } from "react-toastify";
-import { Modal } from "react-bootstrap";
 
 const App = () => {
   return (
@@ -23,6 +27,8 @@ const App = () => {
               path="/surveys/survey-responses"
               element={<SurveyResponses />}
             />
+            <Route path="/surveys/templates" element={<Templates />} />
+            <Route path="/surveys/edit-template" element={<EditTemplate />} />
           </Routes>
           <ToastContainer autoClose={2500} />
           <Footer />
