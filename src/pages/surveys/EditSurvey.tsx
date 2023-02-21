@@ -3,6 +3,7 @@ import { Form, Button, Modal } from "react-bootstrap";
 import {
   MButtonsRow,
   MCollapsibleTable,
+  MDataTable,
   MH2TitleSubtitle,
   MSmallDropdown,
 } from "../../components";
@@ -11,9 +12,41 @@ import MStepsAndContent from "../../components/MStepsAndContent";
 import AccessPermissions from "../../features/surveys/components/AccessPermissions";
 import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 
+const surveyTemplates = [
+  {
+    id: 0,
+    "Template Name": "Lacks Valley Survey Template",
+    "Template Description": "Tailored Survey for Lacks Valley Furniture",
+  },
+  {
+    id: 1,
+    "Template Name": "Lacks Valley Survey Template 2",
+    "Template Description": "Tailored Survey for Lacks Valley Furniture 2",
+  },
+];
+
+const surveyTemplateColumns = [
+  {
+    field: "id",
+    headerName: "ID",
+    width: 70,
+  },
+  {
+    field: "Template Name",
+    headerName: "Template Name",
+    width: 200,
+  },
+  {
+    field: "Template Description",
+    headerName: "Template Description",
+    width: 200,
+  },
+];
+
 const EditSurvey = () => {
   const [show, setShow] = useState(true);
-  const survey_permissions = [
+  const [templateID, setTemplateID] = useState(0);
+  const surveyPermissions = [
     {
       Name: "All employees",
       Permission: <MSelect className="w-50" options={["Read", "Write"]} />,
@@ -58,15 +91,15 @@ const EditSurvey = () => {
         <Form.Label>Survey template</Form.Label>
         <div className="mb-3">
           <ChooseSurveyTemplate
-            title="Lacks Valley Survey Template"
-            subtitle="Tailored Survey for Lacks Valley Furniture"
+            title={surveyTemplates[templateID]["Template Name"]}
+            subtitle={surveyTemplates[templateID]["Template Description"]}
             button1={<Button onClick={() => setShow(true)}>Choose</Button>}
           />
         </div>
 
         <Form.Label>Access permissions</Form.Label>
         <div className="mb-4">
-          <AccessPermissions rows={survey_permissions} />
+          <AccessPermissions rows={surveyPermissions} />
         </div>
 
         <MButtonsRow
@@ -101,17 +134,20 @@ const EditSurvey = () => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <MCollapsibleTable className="mb-4" rows={survey_permissions} />
+        <MDataTable
+          rows={surveyTemplates}
+          columns={surveyTemplateColumns}
+          className="mb-3"
+          onSelectionModelChange={(newSelection) => {
+            setTemplateID(newSelection[0]);
+          }}
+        />
         <MButtonsRow
           buttons={[
             {
               variant: "primary",
               type: "submit",
               text: "Submit",
-              onClick: () => setShow(false),
-            },
-            {
-              text: "Cancel",
               onClick: () => setShow(false),
             },
           ]}

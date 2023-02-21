@@ -8,6 +8,8 @@ interface MDataTableProps {
   pageSize?: number;
   rowsPerPageOptions?: number[];
   checkboxSelection?: boolean;
+  onSelectionModelChange?: (newSelection: any) => void;
+  className?: string;
 }
 
 export interface DataGridColumn {
@@ -24,8 +26,10 @@ const MDataTable = (props: MDataTableProps) => {
     rows,
     columns = [],
     pageSize = 5,
-    rowsPerPageOptions = [5],
+    rowsPerPageOptions = [5, 25, 50],
     checkboxSelection = false,
+    onSelectionModelChange,
+    className,
   } = props;
 
   // fill out columns if not provided
@@ -45,13 +49,14 @@ const MDataTable = (props: MDataTableProps) => {
   }
 
   return (
-    <div className="m-table m-data-table">
+    <div className={`m-table m-data-table ${className}`}>
       <DataGrid
         rows={rows}
         columns={columns}
         pageSize={pageSize}
         rowsPerPageOptions={rowsPerPageOptions}
         checkboxSelection={checkboxSelection}
+        onSelectionModelChange={onSelectionModelChange}
       />
     </div>
   );
