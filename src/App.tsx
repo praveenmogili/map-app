@@ -5,6 +5,7 @@ import NavbarMain from "./features/navbar-menu/NavbarMain";
 import React, { useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {
+  Blocks,
   EditSurvey,
   EditTemplate,
   SurveyResponses,
@@ -30,6 +31,11 @@ const App = () => {
             <Route path="/surveys/templates" element={<Templates />} />
             <Route
               path="/surveys/template/:templateId/block/:blockId"
+              element={<EditTemplate />}
+            />
+            <Route path="/surveys/blocks" element={<Blocks />} />
+            <Route
+              path="/surveys/block/:blockId"
               element={<EditTemplate />}
             />
           </Routes>

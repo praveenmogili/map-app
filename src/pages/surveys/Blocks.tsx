@@ -5,9 +5,9 @@ import {
   MSidepanelAndContent,
   MSubsectionList,
 } from "../../components";
-import AllTemplates from "./AllTemplates";
+import AllBlocks from "./AllBlocks";
 
-const Templates = () => {
+const Blocks = () => {
   const navigate = useNavigate();
   const items = [
     { name: "Surveys", onClick: () => navigate("/surveys") },
@@ -16,14 +16,14 @@ const Templates = () => {
   ];
 
   return (
-    <div id="surveys-templates">
+    <div id="surveys-blocks">
       <MH1TitleBar title="Surveys" />
       <MSidepanelAndContent
         sidepanel={<MSubsectionList items={items} />}
-        content={<AllTemplates />}
+        content={<AllBlocks />}
       />
     </div>
   );
 };
 
-export default Templates;
+export default Blocks;
