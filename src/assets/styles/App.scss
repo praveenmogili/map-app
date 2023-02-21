@@ -177,6 +177,12 @@ hr.short-sep {
 .navbar {
   background-color: $primary;
 
+  .navbar-menu-toggler {
+    color: white;
+    background-color: transparent;
+    border: none;
+  }
+
   .nav-link {
     color: white;
   }
@@ -199,6 +205,30 @@ hr.short-sep {
   background-color: $darkgreen;
   color: white;
   text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/*	Modal
+/* -------------------------------------------------------------------------- */
+
+.modal-dialog.modal-right {
+  position: fixed;
+  width: 65vw;
+  max-width: none;
+  margin: 0;
+  right: 0;
+  top: 0;
+  left: auto;
+}
+
+.modal-dialog.modal-left {
+  position: fixed;
+  width: 65vw;
+  max-width: none;
+  margin: 0;
+  left: 0;
+  top: 0;
+  right: auto;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -270,12 +300,3 @@ hr.short-sep {
 
 
 
-.modal-right {
-  position: fixed;
-  width: 65vw;
-  max-width: none;
-  margin: 0;
-  right: 0;
-  top: 0;
-  left: auto;
-}
