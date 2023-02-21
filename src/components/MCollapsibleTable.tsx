@@ -57,13 +57,14 @@ const Row = (props: RowProps) => {
 
 interface MCollapsibleTableProps {
   rows: MCollapsibleTableRow[];
+  className?: string;
 }
 
 const MCollapsibleTable = (props: MCollapsibleTableProps) => {
-  const { rows } = props;
+  const { rows, className } = props;
 
   return (
-    <TableContainer component={Paper} className="m-table">
+    <TableContainer component={Paper} className={`m-table ${className}`}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
