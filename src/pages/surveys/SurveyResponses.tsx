@@ -1,6 +1,6 @@
 import React from "react";
 import { MH2TitleSubtitle, MSteps } from "../../components";
-import MStepsAndContent from "../../components/MStepsAndContent";
+import { MSidepanelAndContent } from "../../components";
 import SectionHeader from "../../features/surveys/components/SectionHeader";
 
 const SurveyResponses = () => {
@@ -11,7 +11,8 @@ The survey will take approximately 5 minutes to complete and will ask you about 
 Thank you for your time and support.`;
 
   return (
-    <MStepsAndContent
+    <MSidepanelAndContent
+      sidepanel={<MSteps />}
       content={
         <div id="surveys-responses">
           <MH2TitleSubtitle

@@ -10,7 +10,7 @@ import {
   MSmallDropdown,
 } from "../../components";
 import MSelect from "../../components/MSelect";
-import MStepsAndContent from "../../components/MStepsAndContent";
+import MSidepanelAndContent from "../../components/MSidepanelAndContent";
 import AccessPermissions from "../../features/surveys/components/AccessPermissions";
 import ChooseSurveyTemplate from "../../features/surveys/components/ChooseSurveyTemplate";
 

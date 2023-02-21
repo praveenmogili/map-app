@@ -1,11 +1,6 @@
-import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
-import { MH1TitleBar, MSteps } from "../../components";
-import Card from "../../features/surveys/components/Card";
 import AllSurveys from "./AllSurveys";
-import EditSurvey from "./EditSurvey";
-import SurveyResponses from "./SurveyResponses";
-import MStepsAndContent from "../../components/MStepsAndContent";
+import React from "react";
+import { MH1TitleBar, MSteps, MSidepanelAndContent } from "../../components";
 
 const Surveys = () => {
   return (
