@@ -31,11 +31,12 @@ const CardInput = (props: CardInputProps) => {
   const { cardType } = props;
 
   const [multipleOptions, setMultipleOptions] = useState<
-    { [key: string]: any }[]
+    { id: number; label: string; isSelected: boolean }[]
   >([
     {
       id: 1,
-      value: "",
+      label: "",
+      isSelected: false,
     },
   ]);
 
@@ -45,7 +46,8 @@ const CardInput = (props: CardInputProps) => {
       const newOptions = [...c];
       newOptions.push({
         id: newOptions.length + 1,
-        value: "",
+        label: "",
+        isSelected: false,
       });
       return newOptions;
     });
@@ -63,10 +65,69 @@ const CardInput = (props: CardInputProps) => {
   function handleInputChange(index: number, value: string) {
     setMultipleOptions((c) => {
       const newOptions = [...c];
-      newOptions[index].value = value;
+      newOptions[index].label = value;
       return newOptions;
     });
   }
+
+  function handleCheckboxSelection(
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) {
+    setMultipleOptions((c) => {
+      const newOptions = [...c];
+      newOptions[index].isSelected = e.target.checked;
+      return newOptions;
+    });
+  }
+
+  console.log(multipleOptions);
+
+  const CheckRadioFormControl = (is_radio: boolean) => (
+    <>
+      {multipleOptions.map((option, i) => (
+        <div
+          className="d-flex flex-row align-items-center justify-content-between mb-3"
+          key={i}
+        >
+          <Form.Check id={`radio-${i + 1}`} className="my-0 w-50">
+            <Form.Check.Input
+              name="group1"
+              type={is_radio ? "radio" : "checkbox"}
+              checked={option.isSelected}
+              onChange={(e) => handleCheckboxSelection(e, i)}
+            />
+            <Form.Check.Label>
+              <input
+                type="text"
+                className="basic-text-input"
+                key={option.id}
+                defaultValue={option.label}
+                onBlur={(e) => handleInputChange(i, e.target.value)}
+              />
+            </Form.Check.Label>
+          </Form.Check>
+          <button
+            className="empty-button p-0"
+            onClick={(e) => handleRemoveOption(e, i)}
+          >
+            <CloseIcon />
+          </button>
+        </div>
+      ))}
+      <Form.Check name="group1">
+        <Form.Check.Input type={is_radio ? "radio" : "checkbox"} disabled />
+        <Form.Check.Label>
+          <button
+            className="empty-button add-option p-0"
+            onClick={(e) => addOptions(e)}
+          >
+            Add option
+          </button>
+        </Form.Check.Label>
+      </Form.Check>
+    </>
+  );
 
   let formControl = <></>;
   switch (cardType) {
@@ -87,50 +148,10 @@ const CardInput = (props: CardInputProps) => {
       formControl = <Form.Control type="password" placeholder="Password" />;
       break;
     case "Radio":
-      formControl = (
-        <>
-          {multipleOptions.map((option, i) => (
-            <div
-              className="d-flex flex-row align-items-center justify-content-between mb-3"
-              key={i}
-            >
-              <Form.Check
-                id={`radio-${i + 1}`}
-                name="group1"
-                className="my-0 w-50"
-              >
-                <Form.Check.Input type="checkbox" />
-                <Form.Check.Label>
-                  <input
-                    type="text"
-                    className="basic-text-input"
-                    key={option.id}
-                    defaultValue={option.value}
-                    onBlur={(e) => handleInputChange(i, e.target.value)}
-                  />
-                </Form.Check.Label>
-              </Form.Check>
-              <button
-                className="empty-button p-0"
-                onClick={(e) => handleRemoveOption(e, i)}
-              >
-                <CloseIcon />
-              </button>
-            </div>
-          ))}
-          <Form.Check name="group1">
-            <Form.Check.Input type="checkbox" disabled />
-            <Form.Check.Label>
-              <button
-                className="empty-button add-option p-0"
-                onClick={(e) => addOptions(e)}
-              >
-                Add option
-              </button>
-            </Form.Check.Label>
-          </Form.Check>
-        </>
-      );
+      formControl = CheckRadioFormControl(true);
+      break;
+    case "Checkbox":
+      formControl = CheckRadioFormControl(false);
       break;
     default:
       return <></>;

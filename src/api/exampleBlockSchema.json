@@ -1,0 +1,122 @@
+{
+  "type": "block",
+  "id": "block1",
+  "title": "Block 1",
+  "description": "Block 1 description",
+  "created": "2018-01-01T12:00:00Z",
+  "updated": "2018-01-01T12:00:00Z",
+  "version": 1,
+  "dataSchema": [
+    {
+      "id": "field1",
+      "type": "string",
+      "title": "Field 1",
+      "description": "Field 1 description",
+      "value": "Field 1 value"
+    },
+    {
+      "id": "field2",
+      "type": "number",
+      "title": "Field 2",
+      "description": "Field 2 description",
+      "value": 23
+    },
+    {
+      "id": "field3",
+      "type": "paragprah",
+      "title": "Field 3",
+      "description": "Field 3 description",
+      "value": "Field 3 long paragraph"
+    },
+    {
+      "id": "field4",
+      "type": "password",
+      "title": "Field 4",
+      "description": "Field 4 description",
+      "value": "cewsdfkncknweisdn"
+    },
+    {
+      "id": "field5",
+      "type": "radio",
+      "title": "Field 5",
+      "description": "Field 5 description",
+      "value": [
+        {
+          "id": 1,
+          "label": "Radio 1",
+          "isSelected": true
+        },
+        {
+          "id": 2,
+          "label": "Radio 2",
+          "isSelected": false
+        },
+        {
+          "id": 3,
+          "label": "Radio 3",
+          "isSelected": false
+        }
+      ]
+    },
+    {
+      "id": "field6",
+      "type": "checkbox",
+      "title": "Field 6",
+      "description": "Field 6 description",
+      "value": [
+        {
+          "id": 1,
+          "label": "Checkbox 1",
+          "isSelected": true
+        },
+        {
+          "id": 2,
+          "label": "Checkbox 2",
+          "isSelected": true
+        },
+        {
+          "id": 3,
+          "label": "Checkbox 3",
+          "isSelected": false
+        }
+      ]
+    },
+    {
+      "id": "field7",
+      "type": "dropdown",
+      "title": "Field 7",
+      "description": "Field 7 description",
+      "value": [
+        {
+          "id": 1,
+          "label": "Dropdown 1",
+          "isSelected": true
+        },
+        {
+          "id": 2,
+          "label": "Dropdown 2",
+          "isSelected": false
+        },
+        {
+          "id": 3,
+          "label": "Dropdown 3",
+          "isSelected": false
+        }
+      ]
+    },
+    {
+      "id": "field8",
+      "type": "date",
+      "title": "Field 8",
+      "description": "Field 8 description",
+      "value": "2018-01-01"
+    },
+    {
+      "id": "field9",
+      "type": "time",
+      "title": "Field 9",
+      "description": "Field 9 description",
+      "value": "12:00"
+    }
+  ]
+}
