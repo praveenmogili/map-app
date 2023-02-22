@@ -28,13 +28,21 @@ interface CardInputProps {
 
 const CardInput = (props: CardInputProps) => {
   const { cardType } = props;
-  const [numberOfOptions, setNumberOfOptions] = useState<number>(1);
+  const [multipleOptions, setMultipleOptions] = useState<{ label: string }[]>([
+    {
+      label: "Option 1",
+    },
+  ]);
   function addOptions(e: React.MouseEvent) {
     e.preventDefault();
-    setNumberOfOptions(numberOfOptions + 1);
+    setMultipleOptions((c) => {
+      c = [...c, { label: `Option ${c.length + 1}` }];
+      return c;
+    });
   }
 
   let formControl = <></>;
+
   switch (cardType) {
     case "Short string":
       formControl = (
@@ -55,10 +63,11 @@ const CardInput = (props: CardInputProps) => {
     case "Radio":
       formControl = (
         <>
-          {[...Array(numberOfOptions)].map((_, i) => (
+          {multipleOptions.map((e, i) => (
             <Form.Check
+              key={e.label + i}
               type="radio"
-              label={`Option ${i + 1}`}
+              label={e.label}
               id={`radio-${i + 1}`}
               name="group1"
             />
@@ -99,7 +108,11 @@ const Card = (props: CardProps) => {
           <p className="title m-0">{title}</p>
           <p className="subtitle m-0">{subtitle}</p>
         </div>
-        <MSelect options={CARD_TYPES} onChange={(e) => setCardType(e!.value)} />
+        <MSelect
+          options={CARD_TYPES}
+          defaultValue={cardType}
+          onChange={(e) => setCardType(e!.value)}
+        />
       </Form.Label>
       <CardInput cardType={cardType} />
     </div>
