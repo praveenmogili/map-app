@@ -28,6 +28,12 @@ interface CardInputProps {
 
 const CardInput = (props: CardInputProps) => {
   const { cardType } = props;
+  const [numberOfOptions, setNumberOfOptions] = useState<number>(1);
+  function addOptions(e: React.MouseEvent) {
+    e.preventDefault();
+    setNumberOfOptions(numberOfOptions + 1);
+  }
+
   let formControl = <></>;
   switch (cardType) {
     case "Short string":
@@ -48,7 +54,28 @@ const CardInput = (props: CardInputProps) => {
       break;
     case "Radio":
       formControl = (
-        <Form.Check type="radio" label={`disabled`} id={`disabled-default-`} />
+        <>
+          {[...Array(numberOfOptions)].map((_, i) => (
+            <Form.Check
+              type="radio"
+              label={`Option ${i + 1}`}
+              id={`radio-${i + 1}`}
+              name="group1"
+            />
+          ))}
+          <Form.Check
+            type="radio"
+            label={
+              <button
+                className="empty-button add-option p-0"
+                onClick={(e) => addOptions(e)}
+              >
+                Add option
+              </button>
+            }
+            name="group1"
+          />
+        </>
       );
       break;
     default:
@@ -66,16 +93,13 @@ const Card = (props: CardProps) => {
   const [cardType, setCardType] = useState<string>("Radio");
 
   return (
-    <div className="card">
+    <div className="survey-card">
       <Form.Label className="d-flex flex-row justify-content-between align-items-center mb-3">
         <div>
           <p className="title m-0">{title}</p>
           <p className="subtitle m-0">{subtitle}</p>
         </div>
-        <MSelect
-          options={CARD_TYPES}
-          onChange={(e) => setCardType(e!.value)}
-        />
+        <MSelect options={CARD_TYPES} onChange={(e) => setCardType(e!.value)} />
       </Form.Label>
       <CardInput cardType={cardType} />
     </div>
