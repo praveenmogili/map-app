@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Form } from "react-bootstrap";
 import MSelect from "../../../components/MSelect";
 import CloseIcon from "@mui/icons-material/Close";
@@ -29,23 +29,48 @@ interface CardInputProps {
 
 const CardInput = (props: CardInputProps) => {
   const { cardType } = props;
+
   const [multipleOptions, setMultipleOptions] = useState<
-    { label: JSX.Element }[]
+    { [key: string]: any }[]
   >([
     {
-      label: <input type="text" className="basic-text-input" />,
+      id: 1,
+      value: "",
     },
   ]);
+
   function addOptions(e: React.MouseEvent) {
     e.preventDefault();
     setMultipleOptions((c) => {
-      c = [...c, { label: <input type="text" /> }];
-      return c;
+      const newOptions = [...c];
+      newOptions.push({
+        id: newOptions.length + 1,
+        value: "",
+      });
+      return newOptions;
+    });
+  }
+
+  console.log(multipleOptions);
+
+  function handleRemoveOption(e: React.MouseEvent, index: number) {
+    e.preventDefault();
+    setMultipleOptions((c) => {
+      const newOptions = [...c];
+      newOptions.splice(index, 1);
+      return newOptions;
+    });
+  }
+
+  function handleInputChange(index: number, value: string) {
+    setMultipleOptions((c) => {
+      const newOptions = [...c];
+      newOptions[index].value = value;
+      return newOptions;
     });
   }
 
   let formControl = <></>;
-
   switch (cardType) {
     case "Short string":
       formControl = (
@@ -66,17 +91,30 @@ const CardInput = (props: CardInputProps) => {
     case "Radio":
       formControl = (
         <>
-          {multipleOptions.map((e, i) => (
-            <div className="d-flex flex-row align-items-center justify-content-between mb-3">
+          {multipleOptions.map((option, i) => (
+            <div
+              className="d-flex flex-row align-items-center justify-content-between mb-3"
+              key={i}
+            >
               <Form.Check
-                key={i}
                 type="radio"
-                label={e.label}
+                label={
+                  <input
+                    type="text"
+                    className="basic-text-input"
+                    key={option.id}
+                    defaultValue={option.value}
+                    onBlur={(e) => handleInputChange(i, e.target.value)}
+                  />
+                }
                 id={`radio-${i + 1}`}
                 name="group1"
                 className="my-0 w-50"
               />
-              <button className="empty-button p-0">
+              <button
+                className="empty-button p-0"
+                onClick={(e) => handleRemoveOption(e, i)}
+              >
                 <CloseIcon />
               </button>
             </div>
