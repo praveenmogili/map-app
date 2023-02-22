@@ -127,7 +127,7 @@ const CardInput = (props: CardInputProps) => {
           className="d-flex flex-row align-items-center justify-content-between mb-3"
           key={i}
         >
-          <Form.Check id={`radio-${i + 1}`} className="my-0 w-50">
+          <Form.Check className="my-0 w-50">
             <Form.Check.Input
               name="group1"
               type={is_radio ? "radio" : "checkbox"}
