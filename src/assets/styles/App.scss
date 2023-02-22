@@ -96,12 +96,15 @@ select.form-select.small-colored-select {
 form .form-check {
   display: flex;
   align-items: center;
-  margin-bottom: 0.75rem;
 
   input.form-check-input {
     margin: 0 0.5rem 0 0;
     width: 1.25rem;
     height: 1.25rem;
+  }
+
+  label.form-check-label {
+    width: 100%;
   }
 
   button.add-option {
@@ -139,6 +142,14 @@ button.empty-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+input[type="text"].basic-text-input {
+  border: none;
+  border-bottom: 1px solid $border-gray;
+  background-color: transparent;
+  font-size: 1rem;
+  width: 100%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -334,6 +345,8 @@ button.empty-button {
   border-radius: 6px;
   margin-bottom: 1rem;
   padding: 1.2rem;
+  max-width: 1000px;
+  margin-inline: auto;
 }
 
 .survey-card .title {

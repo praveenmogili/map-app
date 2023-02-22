@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import MSelect from "../../../components/MSelect";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface CardProps {
   title?: string;
@@ -28,15 +29,17 @@ interface CardInputProps {
 
 const CardInput = (props: CardInputProps) => {
   const { cardType } = props;
-  const [multipleOptions, setMultipleOptions] = useState<{ label: string }[]>([
+  const [multipleOptions, setMultipleOptions] = useState<
+    { label: JSX.Element }[]
+  >([
     {
-      label: "Option 1",
+      label: <input type="text" className="basic-text-input" />,
     },
   ]);
   function addOptions(e: React.MouseEvent) {
     e.preventDefault();
     setMultipleOptions((c) => {
-      c = [...c, { label: `Option ${c.length + 1}` }];
+      c = [...c, { label: <input type="text" /> }];
       return c;
     });
   }
@@ -64,16 +67,23 @@ const CardInput = (props: CardInputProps) => {
       formControl = (
         <>
           {multipleOptions.map((e, i) => (
-            <Form.Check
-              key={e.label + i}
-              type="radio"
-              label={e.label}
-              id={`radio-${i + 1}`}
-              name="group1"
-            />
+            <div className="d-flex flex-row align-items-center justify-content-between mb-3">
+              <Form.Check
+                key={i}
+                type="radio"
+                label={e.label}
+                id={`radio-${i + 1}`}
+                name="group1"
+                className="my-0 w-50"
+              />
+              <button className="empty-button p-0">
+                <CloseIcon />
+              </button>
+            </div>
           ))}
           <Form.Check
             type="radio"
+            disabled
             label={
               <button
                 className="empty-button add-option p-0"
