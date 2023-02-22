@@ -1,8 +1,7 @@
 import React from "react";
 import Select, { ActionMeta, SingleValue } from "react-select";
 import { THEME_COLORS } from "../assets/constants";
-import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-
+import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 
 interface MSelectProps {
   options?: string[];
@@ -20,10 +19,14 @@ interface MSelectProps {
   className?: string;
 }
 
-const options2 = [`${<AccessibilityNewIcon />}c`, "Strawberry", "Vanilla"];
+const optionsDefault = [
+  `${(<AccessibilityNewIcon />)}c`,
+  "Strawberry",
+  "Vanilla",
+];
 
 const MSelect = (props: MSelectProps) => {
-  const { options = options2, onChange, defaultValue, className } = props;
+  const { options = optionsDefault, onChange, defaultValue, className } = props;
   const adjustedOptions = options.map((option) => ({
     value: option,
     label: option,
@@ -38,7 +41,7 @@ const MSelect = (props: MSelectProps) => {
   return (
     <>
       <Select
-        className={className}
+        className={`m-select ${className}`}
         options={adjustedOptions}
         isSearchable
         onChange={onChange}

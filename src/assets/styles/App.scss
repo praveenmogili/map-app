@@ -93,6 +93,20 @@ select.form-select.small-colored-select {
   max-width: 25vw;
 }
 
+form .form-check {
+  display: flex;
+  align-items: center;
+
+  input.form-check-input {
+    margin-top: 0;
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+
+
 /* -------------------------------------------------------------------------- */
 /*	General MAP App
 /* -------------------------------------------------------------------------- */
@@ -117,6 +131,14 @@ hr.short-sep {
   max-width: 50vw;
   margin-top: 0;
   margin-bottom: 0.75rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*	MSelect
+/* -------------------------------------------------------------------------- */
+
+.m-select {
+  width: 20%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -304,16 +326,11 @@ hr.short-sep {
   border: 1px solid $btn-border;
   border-radius: 6px;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 #surveys-responses .card,
 #surveys-edit-block .card {
-  input {
-    border: 1px solid $btn-border;
-    border-radius: 6px;
-    padding: 0.375rem 0.75rem;
-  }
   select option {
     color: blue;
     background-color: white;
