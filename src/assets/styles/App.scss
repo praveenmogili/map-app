@@ -152,9 +152,11 @@ input[type="text"].empty-input {
 
 input[type="text"].basic-text-input {
   border: none;
+  border-radius: 0;
   border-bottom: 1px solid $border-gray;
   background-color: transparent;
   width: 100%;
+  padding: 0.25rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -352,6 +354,14 @@ input[type="text"].basic-text-input {
   padding: 1.2rem;
   max-width: 1000px;
   margin-inline: auto;
+}
+
+.survey-card .input-available {
+  border: none;
+  background-color: $lightgray;
+  border-radius: 3px;
+  width: 100%;
+  padding: 0.375rem;
 }
 
 .survey-card .title {

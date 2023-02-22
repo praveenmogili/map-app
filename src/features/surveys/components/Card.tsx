@@ -1,11 +1,12 @@
 import React, { useState, useRef } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Col, Row } from "react-bootstrap";
 import MSelect from "../../../components/MSelect";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface CardProps {
   title?: string;
   subtitle?: string;
+  cardType?: string;
 }
 
 const CARD_TYPES = [
@@ -31,10 +32,10 @@ const CardInput = (props: CardInputProps) => {
   const { cardType } = props;
 
   const [multipleOptions, setMultipleOptions] = useState<
-    { id: number; label: string; isSelected: boolean }[]
+    { id: string; label: string; isSelected: boolean }[]
   >([
     {
-      id: 1,
+      id: `1-${Math.floor(Math.random() * 10000)}`,
       label: "",
       isSelected: false,
     },
@@ -45,7 +46,7 @@ const CardInput = (props: CardInputProps) => {
     setMultipleOptions((c) => {
       const newOptions = [...c];
       newOptions.push({
-        id: newOptions.length + 1,
+        id: `${newOptions.length + 1}-${Math.floor(Math.random() * 10000)}`,
         label: "",
         isSelected: false,
       });
@@ -81,6 +82,44 @@ const CardInput = (props: CardInputProps) => {
     });
   }
 
+  const DropdownFormControl = () => (
+    <>
+      {multipleOptions.map((option, i) => (
+        <div
+          className="d-flex flex-row align-items-center justify-content-between mb-3"
+          key={i}
+        >
+          <div className="d-flex flex-row align-items-center w-50">
+            <p className="my-0 mx-2">{i + 1}.</p>
+            <Form.Control
+              type="text"
+              className="basic-text-input"
+              key={option.id}
+              defaultValue={option.label}
+              onBlur={(e) => handleInputChange(i, e.target.value)}
+            />
+          </div>
+          <button
+            className="empty-button p-0"
+            onClick={(e) => handleRemoveOption(e, i)}
+          >
+            <CloseIcon />
+          </button>
+        </div>
+      ))}
+      <Form.Check name="group1">
+        <Form.Check.Label>
+          <button
+            className="empty-button add-option p-0"
+            onClick={(e) => addOptions(e)}
+          >
+            Add option
+          </button>
+        </Form.Check.Label>
+      </Form.Check>
+    </>
+  );
+
   const CheckRadioFormControl = (is_radio: boolean) => (
     <>
       {multipleOptions.map((option, i) => (
@@ -96,7 +135,7 @@ const CardInput = (props: CardInputProps) => {
               onChange={(e) => handleCheckboxSelection(e, i)}
             />
             <Form.Check.Label>
-              <input
+              <Form.Control
                 type="text"
                 className="basic-text-input"
                 key={option.id}
@@ -151,6 +190,9 @@ const CardInput = (props: CardInputProps) => {
     case "Checkbox":
       formControl = CheckRadioFormControl(false);
       break;
+    case "Dropdown":
+      formControl = DropdownFormControl();
+      break;
     default:
       return <></>;
   }
@@ -158,7 +200,9 @@ const CardInput = (props: CardInputProps) => {
 };
 
 const Card = (props: CardProps) => {
-  const [cardType, setCardType] = useState<string>("Radio");
+  const [cardType, setCardType] = useState<string>(
+    props.cardType || "Dropdown"
+  );
   const [title, setTitle] = useState<string>("Implementation Data");
   const [subtitle, setSubtitle] = useState<string>(
     "The implementation data description"
@@ -171,7 +215,7 @@ const Card = (props: CardProps) => {
           <Form.Label>
             <input
               type="text"
-              className="empty-input title"
+              className="input-available title"
               defaultValue={title}
               onBlur={(e) => setTitle(e.target.value)}
             />

@@ -28,6 +28,7 @@ Thank you for your time and support.`;
       />
       <Form>
         <Card />
+        <Card cardType="Radio" />
       </Form>
     </div>
   );
