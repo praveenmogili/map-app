@@ -95,8 +95,12 @@ const CardInput = (props: CardInputProps) => {
               key={i}
             >
               <Form.Check
-                type="radio"
-                label={
+                id={`radio-${i + 1}`}
+                name="group1"
+                className="my-0 w-50"
+              >
+                <Form.Check.Input type="checkbox" />
+                <Form.Check.Label>
                   <input
                     type="text"
                     className="basic-text-input"
@@ -104,11 +108,8 @@ const CardInput = (props: CardInputProps) => {
                     defaultValue={option.value}
                     onBlur={(e) => handleInputChange(i, e.target.value)}
                   />
-                }
-                id={`radio-${i + 1}`}
-                name="group1"
-                className="my-0 w-50"
-              />
+                </Form.Check.Label>
+              </Form.Check>
               <button
                 className="empty-button p-0"
                 onClick={(e) => handleRemoveOption(e, i)}
@@ -117,19 +118,17 @@ const CardInput = (props: CardInputProps) => {
               </button>
             </div>
           ))}
-          <Form.Check
-            type="radio"
-            disabled
-            label={
+          <Form.Check name="group1">
+            <Form.Check.Input type="checkbox" disabled />
+            <Form.Check.Label>
               <button
                 className="empty-button add-option p-0"
                 onClick={(e) => addOptions(e)}
               >
                 Add option
               </button>
-            }
-            name="group1"
-          />
+            </Form.Check.Label>
+          </Form.Check>
         </>
       );
       break;
