@@ -4,9 +4,7 @@ import MSelect from "../../../components/MSelect";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface CardProps {
-  title?: string;
-  subtitle?: string;
-  cardType?: string;
+  defaultCardType?: string;
   isSectionHeader?: boolean;
 }
 
@@ -170,7 +168,7 @@ const CardInput = (props: CardInputProps) => {
   );
 
   const TitleDescriptionFormControl = () => (
-    <Form.Control as="textarea" placeholder="Title and description" rows={4} />
+    <Form.Control as="textarea" placeholder="A little explanation" rows={4} />
   );
 
   let formControl: JSX.Element = <></>;
@@ -209,6 +207,9 @@ const CardInput = (props: CardInputProps) => {
     case "Title and description":
       formControl = TitleDescriptionFormControl();
       break;
+    case "Array":
+      formControl = <Card defaultCardType="Short string" />;
+      break;
     default:
       return <></>;
   }
@@ -216,10 +217,10 @@ const CardInput = (props: CardInputProps) => {
 };
 
 const Card = (props: CardProps) => {
-  const { isSectionHeader } = props;
+  const { defaultCardType = "Short string", isSectionHeader = false } = props;
 
   const [cardType, setCardType] = useState<string>(
-    isSectionHeader ? "Title and description" : "Short string"
+    isSectionHeader ? "Title and description" : defaultCardType
   );
   const [title, setTitle] = useState<string>("Implementation Data");
   const [subtitle, setSubtitle] = useState<string>(

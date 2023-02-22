@@ -25,11 +25,11 @@ Thank you for your time and support.`;
         subtitle="View and manage survey responses"
       />
       <Form>
-        <h3>Section 1</h3>
+        <h3 className="ms-2">Section 1</h3>
         <Card isSectionHeader />
         <Card />
-        <Card cardType="Radio" />
-        <h3>Section 2</h3>
+        <Card defaultCardType="Radio" />
+        <h3 className="ms-2">Section 2</h3>
         <Card isSectionHeader />
       </Form>
     </div>
