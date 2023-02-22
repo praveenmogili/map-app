@@ -144,11 +144,16 @@ button.empty-button {
   cursor: pointer;
 }
 
+input[type="text"].empty-input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+}
+
 input[type="text"].basic-text-input {
   border: none;
   border-bottom: 1px solid $border-gray;
   background-color: transparent;
-  font-size: 1rem;
   width: 100%;
 }
 
@@ -351,6 +356,10 @@ input[type="text"].basic-text-input {
 
 .survey-card .title {
   font-size: 1.4rem;
+}
+
+.survey-card .subtitle {
+  color: $subtitle;
 }
 
 .survey-card.section-header {

@@ -51,8 +51,6 @@ const CardInput = (props: CardInputProps) => {
     });
   }
 
-  console.log(multipleOptions);
-
   function handleRemoveOption(e: React.MouseEvent, index: number) {
     e.preventDefault();
     setMultipleOptions((c) => {
@@ -142,26 +140,37 @@ const CardInput = (props: CardInputProps) => {
 };
 
 const Card = (props: CardProps) => {
-  const {
-    title = "Implementation Data",
-    subtitle = "The implementation data description",
-  } = props;
-
   const [cardType, setCardType] = useState<string>("Radio");
+  const [title, setTitle] = useState<string>("Implementation Data");
+  const [subtitle, setSubtitle] = useState<string>(
+    "The implementation data description"
+  );
 
   return (
     <div className="survey-card">
-      <Form.Label className="d-flex flex-row justify-content-between align-items-center mb-3">
+      <div className="d-flex flex-row justify-content-between align-items-center mb-3">
         <div>
-          <p className="title m-0">{title}</p>
-          <p className="subtitle m-0">{subtitle}</p>
+          <Form.Label>
+            <input
+              type="text"
+              className="empty-input title"
+              defaultValue={title}
+              onBlur={(e) => setTitle(e.target.value)}
+            />
+            <input
+              type="text"
+              className="empty-input subtitle"
+              defaultValue={subtitle}
+              onBlur={(e) => setSubtitle(e.target.value)}
+            />
+          </Form.Label>
         </div>
         <MSelect
           options={CARD_TYPES}
           defaultValue={cardType}
           onChange={(e) => setCardType(e!.value)}
         />
-      </Form.Label>
+      </div>
       <CardInput cardType={cardType} />
     </div>
   );

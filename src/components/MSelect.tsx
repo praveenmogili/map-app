@@ -26,7 +26,12 @@ const optionsDefault = [
 ];
 
 const MSelect = (props: MSelectProps) => {
-  const { options = optionsDefault, onChange, defaultValue, className } = props;
+  const {
+    options = optionsDefault,
+    onChange,
+    defaultValue,
+    className = "",
+  } = props;
   const adjustedOptions = options.map((option) => ({
     value: option,
     label: option,
