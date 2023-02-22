@@ -6,7 +6,7 @@
   "created": "2018-01-01T12:00:00Z",
   "updated": "2018-01-01T12:00:00Z",
   "version": 1,
-  "dataSchema": [
+  "questions": [
     {
       "id": "field1",
       "type": "string",

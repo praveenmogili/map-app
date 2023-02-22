@@ -25,9 +25,31 @@ const AddButtons = (isInArray: boolean = false) => (
   </div>
 );
 
+interface CardSchema {
+  type: string;
+  id: string;
+  title: string;
+  description?: string;
+  value?:
+    | string
+    | number
+    | { id: string; label: string; isSelected: boolean }[];
+}
+
+interface BlockSchema {
+  type: string;
+  id: string;
+  title: string;
+  description?: string;
+  created: string;
+  updated: string;
+  version: number;
+  questions: CardSchema[];
+}
+
+
 const EditBlock = () => {
-
-
+  const [schema, setSchema] = useState<BlockSchema>();
 
   return (
     <div
