@@ -30,7 +30,7 @@ interface CardInputProps {
 }
 
 const CardInput = (props: CardInputProps) => {
-  const { cardType, isSectionHeader } = props;
+  const { cardType } = props;
 
   const [multipleOptions, setMultipleOptions] = useState<
     { id: string; label: string; isSelected: boolean }[]

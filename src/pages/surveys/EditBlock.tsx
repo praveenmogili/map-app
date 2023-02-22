@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Row } from "react-bootstrap";
 import {
   MH2TitleSubtitle,
@@ -8,13 +8,26 @@ import {
 import Card from "../../features/surveys/components/Card";
 import SectionHeader from "../../features/surveys/components/SectionHeader";
 import AddIcon from "@mui/icons-material/Add";
+import ViewStreamIcon from "@mui/icons-material/ViewStream";
+
+const AddButtons = (isInArray: boolean = false) => (
+  <div className="d-flex justify-content-center">
+    <div className="d-flex flex-row">
+      {!isInArray && (
+        <Button variant="primary add-card d-flex flex-row" className="ms-2">
+          <ViewStreamIcon /> <p className="ms-2 my-0">Add section</p>
+        </Button>
+      )}
+      <Button variant="primary add-card d-flex flex-row" className="ms-2">
+        <AddIcon /> <p className="ms-2 my-0">Add card</p>
+      </Button>
+    </div>
+  </div>
+);
 
 const EditBlock = () => {
-  const ppp = `We at Mythics, Inc. are committed to providing the best cloud computing solutions to meet our customers' needs. In order to better understand your specific requirements, we would like to invite you to participate in a short survey. 
 
-The survey will take approximately 5 minutes to complete and will ask you about your current usage of cloud computing services, your future plans and expectations, and your level of satisfaction with your current provider. Your input is extremely valuable to us and will help us deliver the most relevant and effective solutions for you. 
-  
-Thank you for your time and support.`;
+
 
   return (
     <div
@@ -28,16 +41,7 @@ Thank you for your time and support.`;
       <Form>
         <h3 className="ms-2">Section 1</h3>
         <Card isSectionHeader />
-        <div className="d-flex justify-content-center">
-          <div className="d-flex flex-row">
-            <Button variant="primary add-card d-flex flex-row" className="ms-2">
-              <AddIcon /> <p className="m-0">Add section</p>
-            </Button>
-            <Button variant="primary add-card d-flex flex-row" className="ms-2">
-              <AddIcon /> <p className="m-0">Add section</p>
-            </Button>
-          </div>
-        </div>
+        {AddButtons()}
         <Card />
         <Card defaultCardType="Radio" />
         <h3 className="ms-2">Section 2</h3>
