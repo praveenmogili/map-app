@@ -346,14 +346,17 @@ input[type="text"].basic-text-input {
   }
 }
 
+.survey-form-cards {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
 .survey-card {
   background-color: white;
   border: 1px solid $btn-border;
   border-radius: 6px;
   margin-bottom: 1rem;
   padding: 1.2rem;
-  max-width: 1000px;
-  margin-inline: auto;
 }
 
 .survey-card .input-available {

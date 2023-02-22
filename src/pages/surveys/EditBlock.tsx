@@ -16,19 +16,21 @@ The survey will take approximately 5 minutes to complete and will ask you about 
 Thank you for your time and support.`;
 
   return (
-    <div id="surveys-edit-block" className="container-fluid px-4">
+    <div
+      id="surveys-edit-block"
+      className="container-fluid px-4 survey-form-cards"
+    >
       <MH2TitleSubtitle
         title="Survey Responses"
         subtitle="View and manage survey responses"
       />
-      <SectionHeader
-        title="Order Test 1"
-        subtitle="A survey to calculate your Oracle needs"
-        foreword={ppp}
-      />
       <Form>
+        <h3>Section 1</h3>
+        <Card isSectionHeader />
         <Card />
         <Card cardType="Radio" />
+        <h3>Section 2</h3>
+        <Card isSectionHeader />
       </Form>
     </div>
   );

@@ -7,6 +7,7 @@ interface CardProps {
   title?: string;
   subtitle?: string;
   cardType?: string;
+  isSectionHeader?: boolean;
 }
 
 const CARD_TYPES = [
@@ -21,15 +22,17 @@ const CARD_TYPES = [
   { id: "time", label: "Time" },
   { id: "array", label: "Array" },
   { id: "title-description", label: "Title and description" },
+  { id: "section-header", label: "Section header" },
 ];
 
 interface CardInputProps {
   cardType?: string;
   setCardValue?: (value: string | object) => void;
+  isSectionHeader?: boolean;
 }
 
 const CardInput = (props: CardInputProps) => {
-  const { cardType } = props;
+  const { cardType, isSectionHeader } = props;
 
   const [multipleOptions, setMultipleOptions] = useState<
     { id: string; label: string; isSelected: boolean }[]
@@ -166,7 +169,11 @@ const CardInput = (props: CardInputProps) => {
     </>
   );
 
-  let formControl = <></>;
+  const TitleDescriptionFormControl = () => (
+    <Form.Control as="textarea" placeholder="Title and description" rows={4} />
+  );
+
+  let formControl: JSX.Element = <></>;
   switch (cardType) {
     case "Short string":
       formControl = (
@@ -193,6 +200,15 @@ const CardInput = (props: CardInputProps) => {
     case "Dropdown":
       formControl = DropdownFormControl();
       break;
+    case "Date":
+      formControl = <Form.Control type="date" placeholder="Date" />;
+      break;
+    case "Time":
+      formControl = <Form.Control type="time" placeholder="Time" />;
+      break;
+    case "Title and description":
+      formControl = TitleDescriptionFormControl();
+      break;
     default:
       return <></>;
   }
@@ -200,8 +216,10 @@ const CardInput = (props: CardInputProps) => {
 };
 
 const Card = (props: CardProps) => {
+  const { isSectionHeader } = props;
+
   const [cardType, setCardType] = useState<string>(
-    props.cardType || "Dropdown"
+    isSectionHeader ? "Title and description" : "Short string"
   );
   const [title, setTitle] = useState<string>("Implementation Data");
   const [subtitle, setSubtitle] = useState<string>(
@@ -209,9 +227,9 @@ const Card = (props: CardProps) => {
   );
 
   return (
-    <div className="survey-card">
-      <div className="d-flex flex-row justify-content-between align-items-center mb-3">
-        <div>
+    <div className={`survey-card ${isSectionHeader ? "section-header" : ""}`}>
+      <div className="title-card-type d-flex flex-row justify-content-between align-items-center mb-3">
+        <div className="title-description">
           <Form.Label>
             <input
               type="text"
@@ -227,12 +245,17 @@ const Card = (props: CardProps) => {
             />
           </Form.Label>
         </div>
-        <MSelect
-          options={CARD_TYPES.map((c) => c.label)}
-          defaultValue={cardType}
-          onChange={(e) => setCardType(e!.value)}
-        />
+        {!isSectionHeader && (
+          <MSelect
+            options={CARD_TYPES.map((c) => c.label)}
+            defaultValue={cardType}
+            onChange={(e) => setCardType(e!.value)}
+          />
+        )}
       </div>
+      {cardType === "Title and description" ? (
+        <hr className="short-sep" />
+      ) : null}
       <CardInput cardType={cardType} />
     </div>
   );
