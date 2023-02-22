@@ -9,17 +9,17 @@ interface CardProps {
 }
 
 const CARD_TYPES = [
-  "Short string",
-  "Paragraph",
-  "Number",
-  "Password",
-  "Radio",
-  "Checkbox",
-  "Dropdown",
-  "Date",
-  "Time",
-  "Array",
-  "Title and description",
+  { id: "string", label: "Short string" },
+  { id: "paragraph", label: "Paragraph" },
+  { id: "number", label: "Number" },
+  { id: "password", label: "Password" },
+  { id: "radio", label: "Radio" },
+  { id: "checkbox", label: "Checkbox" },
+  { id: "dropdown", label: "Dropdown" },
+  { id: "date", label: "Date" },
+  { id: "time", label: "Time" },
+  { id: "array", label: "Array" },
+  { id: "title-description", label: "Title and description" },
 ];
 
 interface CardInputProps {
@@ -80,8 +80,6 @@ const CardInput = (props: CardInputProps) => {
       return newOptions;
     });
   }
-
-  console.log(multipleOptions);
 
   const CheckRadioFormControl = (is_radio: boolean) => (
     <>
@@ -186,7 +184,7 @@ const Card = (props: CardProps) => {
           </Form.Label>
         </div>
         <MSelect
-          options={CARD_TYPES}
+          options={CARD_TYPES.map((c) => c.label)}
           defaultValue={cardType}
           onChange={(e) => setCardType(e!.value)}
         />

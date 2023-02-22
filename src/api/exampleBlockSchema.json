@@ -23,7 +23,7 @@
     },
     {
       "id": "field3",
-      "type": "paragprah",
+      "type": "paragraph",
       "title": "Field 3",
       "description": "Field 3 description",
       "value": "Field 3 long paragraph"
