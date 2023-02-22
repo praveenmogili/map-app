@@ -408,3 +408,10 @@ input[type="text"].basic-text-input {
     background-color: $hover-secondary;
   }
 }
+
+// Blocks
+
+#surveys-edit-block .add-card {
+  padding: 0.125rem 1rem;
+  border-radius: 6px;
+}

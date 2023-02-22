@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form, Row } from "react-bootstrap";
 import {
   MH2TitleSubtitle,
   MSidepanelAndContent,
@@ -7,6 +7,7 @@ import {
 } from "../../components";
 import Card from "../../features/surveys/components/Card";
 import SectionHeader from "../../features/surveys/components/SectionHeader";
+import AddIcon from "@mui/icons-material/Add";
 
 const EditBlock = () => {
   const ppp = `We at Mythics, Inc. are committed to providing the best cloud computing solutions to meet our customers' needs. In order to better understand your specific requirements, we would like to invite you to participate in a short survey. 
@@ -27,6 +28,16 @@ Thank you for your time and support.`;
       <Form>
         <h3 className="ms-2">Section 1</h3>
         <Card isSectionHeader />
+        <div className="d-flex justify-content-center">
+          <div className="d-flex flex-row">
+            <Button variant="primary add-card d-flex flex-row" className="ms-2">
+              <AddIcon /> <p className="m-0">Add section</p>
+            </Button>
+            <Button variant="primary add-card d-flex flex-row" className="ms-2">
+              <AddIcon /> <p className="m-0">Add section</p>
+            </Button>
+          </div>
+        </div>
         <Card />
         <Card defaultCardType="Radio" />
         <h3 className="ms-2">Section 2</h3>
