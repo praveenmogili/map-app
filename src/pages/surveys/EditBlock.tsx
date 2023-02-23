@@ -34,7 +34,8 @@ interface CardSchema {
   value?:
     | string
     | number
-    | { id: string; label: string; isSelected: boolean }[];
+    | { id: string; label: string; isSelected: boolean }[]
+    | CardSchema[];
 }
 
 interface BlockSchema {
@@ -48,23 +49,43 @@ interface BlockSchema {
   questions: CardSchema[];
 }
 
-// const startingSchema: BlockSchema = {
-//   type: "Block",
-//   id: `block.${createRandomId()}`,
-//   title: "Untitled Block",
-//   description: "",
-//   created: new Date().toISOString(),
-//   updated: new Date().toISOString(),
-//   version: 1,
-//   questions: [
-//     {
-//       type: "section-header",
-//     },
-//   ],
-// };
+const startingSchema: BlockSchema = {
+  type: "Block",
+  id: `block.${createRandomId()}`,
+  title: "Untitled Block",
+  description: "",
+  created: new Date().toISOString(),
+  updated: new Date().toISOString(),
+  version: 1,
+  questions: [
+    {
+      id: `card.${createRandomId()}`,
+      type: "section-header",
+      title: "Section 1",
+      description: "",
+      value: "",
+    },
+    {
+      id: `card.${createRandomId()}`,
+      type: "string",
+      title: "Short answer",
+      description: "Write your short answer here",
+      value: "",
+    },
+  ],
+};
 
 const EditBlock = () => {
-  const [schema, setSchema] = useState<BlockSchema>();
+  const [schema, setSchema] = useState<BlockSchema>(startingSchema);
+  let sectionNumber = 1;
+
+  const allCards = schema.questions.map((card, index) => {
+    return (
+      <>
+        {/* <Card setSchema={setSchema} cardIndex={index} cardData={card} /> */}
+      </>
+    );
+  });
 
   return (
     <div

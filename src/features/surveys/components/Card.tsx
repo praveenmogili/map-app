@@ -15,8 +15,10 @@ interface CardProps {
 }
 
 // change key name 'id' to 'value' for CARD_TYPES to be used in MSelect
-const cardTypesForMSelect: { value: string; label: string }[] =
+const cardTypesIdIsValue: { value: string; label: string; hidden: boolean }[] =
   changeObjectKeyName(deepCopyArrayObj(CARD_TYPES), "id", "value");
+const cardTypesForMSelect: { value: string; label: string; hidden: boolean }[] =
+  cardTypesIdIsValue.filter((c) => !c.hidden);
 
 interface CardInputProps {
   cardTypeId?: string;
@@ -217,15 +219,14 @@ const CardInput = (props: CardInputProps) => {
 };
 
 const Card = (props: CardProps) => {
-  const { defaultCardTypeId = "string", isSectionHeader = false } = props;
+  const { defaultCardTypeId = "string" } = props;
 
-  const [cardTypeId, setCardTypeId] = useState<string>(
-    isSectionHeader ? "title-description" : defaultCardTypeId
-  );
+  const [cardTypeId, setCardTypeId] = useState<string>(defaultCardTypeId);
   const [title, setTitle] = useState<string>("Implementation Data");
   const [subtitle, setSubtitle] = useState<string>(
     "The implementation data description"
   );
+  const isSectionHeader = cardTypeId === "section-header";
 
   return (
     <div className={`survey-card ${isSectionHeader ? "section-header" : ""}`}>
