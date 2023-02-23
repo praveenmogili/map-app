@@ -5,7 +5,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import {
   createRandomId,
   changeObjectKeyName,
-  deepCopyObj,
   deepCopyArrayObj,
 } from "../../../utils/utils";
 import { CARD_TYPES } from "../../../assets/constants/constSurveys";
@@ -39,7 +38,7 @@ const CardInput = (props: CardInputProps) => {
     { id: string; label: string; isSelected: boolean }[]
   >([
     {
-      id: `$card.${createRandomId()}`,
+      id: `card.${createRandomId()}`,
       label: "",
       isSelected: false,
     },

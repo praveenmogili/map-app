@@ -1,6 +1,6 @@
 {
   "type": "block",
-  "id": "block1",
+  "id": "block.1",
   "title": "Block 1",
   "description": "Block 1 description",
   "created": "2018-01-01T12:00:00Z",
@@ -117,6 +117,42 @@
       "title": "Field 9",
       "description": "Field 9 description",
       "value": "12:00"
+    },
+    {
+      "id": "field10",
+      "type": "array",
+      "title": "Field 10",
+      "description": "Field 10 description",
+      "value": [
+        {
+          "id": "field1",
+          "type": "string",
+          "title": "Field 1",
+          "description": "Field 1 description",
+          "value": "Field 1 value"
+        },
+        {
+          "id": "field2",
+          "type": "number",
+          "title": "Field 2",
+          "description": "Field 2 description",
+          "value": 23
+        },
+        {
+          "id": "field3",
+          "type": "paragraph",
+          "title": "Field 3",
+          "description": "Field 3 description",
+          "value": "Field 3 long paragraph"
+        }
+      ]
+    },
+    {
+      "id": "field11",
+      "type": "title-description",
+      "title": "Field 11",
+      "description": "Field 11 description",
+      "value": "Foreword here"
     }
   ]
 }

@@ -20,9 +20,4 @@ export const CARD_TYPES: readonly CardTypeInterface[] = Object.freeze([
     label: "Title and description",
     hidden: false,
   }),
-  Object.freeze({
-    id: "section-header",
-    label: "Section header",
-    hidden: true,
-  }),
 ]);
