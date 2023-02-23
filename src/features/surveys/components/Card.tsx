@@ -15,10 +15,8 @@ interface CardProps {
 }
 
 // change key name 'id' to 'value' for CARD_TYPES to be used in MSelect
-const cardTypesIdIsValue: { value: string; label: string; hidden: boolean }[] =
+const cardTypesForMSelect: { value: string; label: string }[] =
   changeObjectKeyName(deepCopyArrayObj(CARD_TYPES), "id", "value");
-const cardTypesForMSelect: { value: string; label: string; hidden: boolean }[] =
-  cardTypesIdIsValue.filter((c) => !c.hidden);
 
 interface CardInputProps {
   cardTypeId?: string;
