@@ -9,6 +9,7 @@ import Card from "../../features/surveys/components/Card";
 import SectionHeader from "../../features/surveys/components/SectionHeader";
 import AddIcon from "@mui/icons-material/Add";
 import ViewStreamIcon from "@mui/icons-material/ViewStream";
+import { createRandomId } from "../../utils/utils";
 
 const AddButtons = (isInArray: boolean = false) => (
   <div className="d-flex justify-content-center">
@@ -47,6 +48,20 @@ interface BlockSchema {
   questions: CardSchema[];
 }
 
+// const startingSchema: BlockSchema = {
+//   type: "Block",
+//   id: `block.${createRandomId()}`,
+//   title: "Untitled Block",
+//   description: "",
+//   created: new Date().toISOString(),
+//   updated: new Date().toISOString(),
+//   version: 1,
+//   questions: [
+//     {
+//       type: "section-header",
+//     },
+//   ],
+// };
 
 const EditBlock = () => {
   const [schema, setSchema] = useState<BlockSchema>();
@@ -65,7 +80,7 @@ const EditBlock = () => {
         <Card isSectionHeader />
         {AddButtons()}
         <Card />
-        <Card defaultCardType="Radio" />
+        <Card defaultCardTypeId="radio" />
         <h3 className="ms-2">Section 2</h3>
         <Card isSectionHeader />
       </Form>

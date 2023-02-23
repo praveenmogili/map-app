@@ -2,41 +2,63 @@ import React, { useState, useRef } from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import MSelect from "../../../components/MSelect";
 import CloseIcon from "@mui/icons-material/Close";
+import {
+  createRandomId,
+  changeObjectKeyName,
+  deepCopyObj,
+  deepCopyArrayObj,
+} from "../../../utils/utils";
 
 interface CardProps {
-  defaultCardType?: string;
+  defaultCardTypeId?: string;
   isSectionHeader?: boolean;
 }
 
-const CARD_TYPES = [
-  { id: "string", label: "Short string" },
-  { id: "paragraph", label: "Paragraph" },
-  { id: "number", label: "Number" },
-  { id: "password", label: "Password" },
-  { id: "radio", label: "Radio" },
-  { id: "checkbox", label: "Checkbox" },
-  { id: "dropdown", label: "Dropdown" },
-  { id: "date", label: "Date" },
-  { id: "time", label: "Time" },
-  { id: "array", label: "Array" },
-  { id: "title-description", label: "Title and description" },
-  { id: "section-header", label: "Section header" },
-];
+interface CardTypeInterface {
+  readonly id: string;
+  readonly label: string;
+}
+
+const CARD_TYPES: readonly CardTypeInterface[] = Object.freeze([
+  Object.freeze({ id: "string", label: "Short string" }),
+  Object.freeze({ id: "paragraph", label: "Paragraph" }),
+  Object.freeze({ id: "number", label: "Number" }),
+  Object.freeze({ id: "password", label: "Password" }),
+  Object.freeze({ id: "radio", label: "Radio" }),
+  Object.freeze({ id: "checkbox", label: "Checkbox" }),
+  Object.freeze({ id: "dropdown", label: "Dropdown" }),
+  Object.freeze({ id: "date", label: "Date" }),
+  Object.freeze({ id: "time", label: "Time" }),
+  Object.freeze({ id: "array", label: "Array" }),
+  Object.freeze({ id: "title-description", label: "Title and description" }),
+  Object.freeze({ id: "section-header", label: "Section header" }),
+]);
+
+// change key name 'id' to 'value' for CARD_TYPES to be used in MSelect
+const cardTypesIdIsValue: { value: string; label: string }[] =
+  changeObjectKeyName(deepCopyArrayObj(CARD_TYPES), "id", "value");
+const cardTypesForMSelect: { value: string; label: string }[] =
+  cardTypesIdIsValue.filter((c) => c.value !== "section-header");
 
 interface CardInputProps {
-  cardType?: string;
+  cardTypeId?: string;
   setCardValue?: (value: string | object) => void;
   isSectionHeader?: boolean;
 }
 
+function findCardLabel(cardTypeId: string): string {
+  const cardType = CARD_TYPES.find((c) => c.id === cardTypeId);
+  return cardType!.label;
+}
+
 const CardInput = (props: CardInputProps) => {
-  const { cardType } = props;
+  const { cardTypeId } = props;
 
   const [multipleOptions, setMultipleOptions] = useState<
     { id: string; label: string; isSelected: boolean }[]
   >([
     {
-      id: `1-${Math.floor(Math.random() * 10000)}`,
+      id: `$card.${createRandomId()}`,
       label: "",
       isSelected: false,
     },
@@ -47,7 +69,7 @@ const CardInput = (props: CardInputProps) => {
     setMultipleOptions((c) => {
       const newOptions = [...c];
       newOptions.push({
-        id: `${newOptions.length + 1}-${Math.floor(Math.random() * 10000)}`,
+        id: `card.${createRandomId()}`,
         label: "",
         isSelected: false,
       });
@@ -172,43 +194,43 @@ const CardInput = (props: CardInputProps) => {
   );
 
   let formControl: JSX.Element = <></>;
-  switch (cardType) {
-    case "Short string":
+  switch (cardTypeId) {
+    case "string":
       formControl = (
         <Form.Control type="text" placeholder="Short answer text" />
       );
       break;
-    case "Paragraph":
+    case "paragraph":
       formControl = (
         <Form.Control as="textarea" placeholder="Paragraph text" rows={4} />
       );
       break;
-    case "Number":
+    case "number":
       formControl = <Form.Control type="number" placeholder="Number" />;
       break;
-    case "Password":
+    case "password":
       formControl = <Form.Control type="password" placeholder="Password" />;
       break;
-    case "Radio":
+    case "radio":
       formControl = CheckRadioFormControl(true);
       break;
-    case "Checkbox":
+    case "checkbox":
       formControl = CheckRadioFormControl(false);
       break;
-    case "Dropdown":
+    case "dropdown":
       formControl = DropdownFormControl();
       break;
-    case "Date":
+    case "date":
       formControl = <Form.Control type="date" placeholder="Date" />;
       break;
-    case "Time":
+    case "time":
       formControl = <Form.Control type="time" placeholder="Time" />;
       break;
-    case "Title and description":
+    case "title-description":
       formControl = TitleDescriptionFormControl();
       break;
-    case "Array":
-      formControl = <Card defaultCardType="Short string" />;
+    case "array":
+      formControl = <Card defaultCardTypeId="string" />;
       break;
     default:
       return <></>;
@@ -217,10 +239,10 @@ const CardInput = (props: CardInputProps) => {
 };
 
 const Card = (props: CardProps) => {
-  const { defaultCardType = "Short string", isSectionHeader = false } = props;
+  const { defaultCardTypeId = "string", isSectionHeader = false } = props;
 
-  const [cardType, setCardType] = useState<string>(
-    isSectionHeader ? "Title and description" : defaultCardType
+  const [cardTypeId, setCardTypeId] = useState<string>(
+    isSectionHeader ? "title-description" : defaultCardTypeId
   );
   const [title, setTitle] = useState<string>("Implementation Data");
   const [subtitle, setSubtitle] = useState<string>(
@@ -248,16 +270,14 @@ const Card = (props: CardProps) => {
         </div>
         {!isSectionHeader && (
           <MSelect
-            options={CARD_TYPES.map((c) => c.label)}
-            defaultValue={cardType}
-            onChange={(e) => setCardType(e!.value)}
+            fullOptions={cardTypesForMSelect}
+            defaultValue={findCardLabel(cardTypeId)}
+            onChange={(e) => setCardTypeId(e!.value)}
           />
         )}
       </div>
-      {cardType === "Title and description" ? (
-        <hr className="short-sep" />
-      ) : null}
-      <CardInput cardType={cardType} />
+      {cardTypeId === "title-description" ? <hr className="short-sep" /> : null}
+      <CardInput cardTypeId={cardTypeId} />
     </div>
   );
 };
