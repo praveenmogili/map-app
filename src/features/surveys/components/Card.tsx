@@ -8,37 +8,18 @@ import {
   deepCopyObj,
   deepCopyArrayObj,
 } from "../../../utils/utils";
+import { CARD_TYPES } from "../../../assets/constants/constSurveys";
 
 interface CardProps {
   defaultCardTypeId?: string;
   isSectionHeader?: boolean;
 }
 
-interface CardTypeInterface {
-  readonly id: string;
-  readonly label: string;
-}
-
-const CARD_TYPES: readonly CardTypeInterface[] = Object.freeze([
-  Object.freeze({ id: "string", label: "Short string" }),
-  Object.freeze({ id: "paragraph", label: "Paragraph" }),
-  Object.freeze({ id: "number", label: "Number" }),
-  Object.freeze({ id: "password", label: "Password" }),
-  Object.freeze({ id: "radio", label: "Radio" }),
-  Object.freeze({ id: "checkbox", label: "Checkbox" }),
-  Object.freeze({ id: "dropdown", label: "Dropdown" }),
-  Object.freeze({ id: "date", label: "Date" }),
-  Object.freeze({ id: "time", label: "Time" }),
-  Object.freeze({ id: "array", label: "Array" }),
-  Object.freeze({ id: "title-description", label: "Title and description" }),
-  Object.freeze({ id: "section-header", label: "Section header" }),
-]);
-
 // change key name 'id' to 'value' for CARD_TYPES to be used in MSelect
-const cardTypesIdIsValue: { value: string; label: string }[] =
+const cardTypesIdIsValue: { value: string; label: string; hidden: boolean }[] =
   changeObjectKeyName(deepCopyArrayObj(CARD_TYPES), "id", "value");
-const cardTypesForMSelect: { value: string; label: string }[] =
-  cardTypesIdIsValue.filter((c) => c.value !== "section-header");
+const cardTypesForMSelect: { value: string; label: string; hidden: boolean }[] =
+  cardTypesIdIsValue.filter((c) => !c.hidden);
 
 interface CardInputProps {
   cardTypeId?: string;

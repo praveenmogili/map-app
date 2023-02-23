@@ -1,6 +1,7 @@
-export interface CardTypeInterface {
+interface CardTypeInterface {
   readonly id: string;
   readonly label: string;
+  readonly hidden: boolean;
 }
 
 export const CARD_TYPES: readonly CardTypeInterface[] = Object.freeze([
